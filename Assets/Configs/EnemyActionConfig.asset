@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da201d7fcc0b40d79dffa0bd91d38e35, type: 3}
+  m_Name: EnemyActionConfig
+  m_EditorClassIdentifier: 
+  hp: 1
+  speed: 0.5
+  rotateSpeed: 2
+  attackRate: 0.5
+  attackDistance: 0.9
+  damage: 1
+  typeToAnimations:
+  - EnemyState: 0
+    AnimName: Idle
+  - EnemyState: 1
+    AnimName: Attack
+  - EnemyState: 2
+    AnimName: Death
+  - EnemyState: 3
+    AnimName: GoingBack
+  - EnemyState: 4
+    AnimName: Hit
+  crystalPrefab: {fileID: 7301851549864589499, guid: d4318bc0a035d6e42934c01d636841f0, type: 3}
+  dropCrystalChance: 0.295
