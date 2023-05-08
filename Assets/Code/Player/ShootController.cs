@@ -20,6 +20,7 @@ namespace Code.Player
         [Inject] private DiContainer container;
         [Inject] private PlayerActionConfig actionConfig;
         [Inject] private PlayerHpController playerHpController;
+        [Inject] private SoundsManager soundsManager;
 
         [SerializeField] private Transform spawnPoint;
         [SerializeField] private Transform view;
@@ -88,6 +89,7 @@ namespace Code.Player
             if(_isShootingDisabled)
                 return;
             
+            soundsManager.PlayAKSound();
             var bullet = _bulletsPool.GetObject();
             bullet.Init(_newarestEnemy.AimPoint,_bulletsPool,spawnPoint.position);
         }
