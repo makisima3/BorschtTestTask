@@ -14,6 +14,7 @@ using Zenject;
 
 namespace Code.Player
 {
+    [RequireComponent(typeof(PlayerAnimationEvents))]
     public class ShootController : MonoBehaviour, IZoneChecker
     {
         [Inject] private DiContainer container;
@@ -22,7 +23,10 @@ namespace Code.Player
 
         [SerializeField] private Transform spawnPoint;
         [SerializeField] private Transform view;
-    
+        [SerializeField] private Animator animator;
+
+        private PlayerAnimationEvents _playerAnimationEvents;
+        
         private Coroutine _shootCoroutine;
         private EnemiesZone _enemiesZone;
         private BulletsPool _bulletsPool;
@@ -33,11 +37,13 @@ namespace Code.Player
         private void Awake()
         {
             _bulletsPool = new BulletsPool(actionConfig.BulletPrefab, actionConfig.BulletsPoolSize,container);
+            _playerAnimationEvents = GetComponent<PlayerAnimationEvents>();
         }
 
         private void Start()
         {
             playerHpController.OnDead.AddListener(StopShoot);
+            _playerAnimationEvents.OnShoot.AddListener(Shoot);
         }
 
         public void DisableShoot() => _isShootingDisabled = !_isShootingDisabled;
@@ -77,13 +83,13 @@ namespace Code.Player
             IsShooting = false;
         }
 
-        private void Shoot(Transform target)
+        private void Shoot()
         {
             if(_isShootingDisabled)
                 return;
             
             var bullet = _bulletsPool.GetObject();
-            bullet.Init(target,_bulletsPool,spawnPoint.position);
+            bullet.Init(_newarestEnemy.AimPoint,_bulletsPool,spawnPoint.position);
         }
 
         private bool GetNearestEnemy(out Enemy enemy)
@@ -109,6 +115,8 @@ namespace Code.Player
                 ExtraMathf.GetRotation(transform.position, enemy.transform.position, Vector3.up), actionConfig.ViewRotateSpeed * Time.deltaTime);
         }
 
+        private Enemy _newarestEnemy;
+        
         private IEnumerator ShootCoroutine()
         {
             while (true)
@@ -119,7 +127,9 @@ namespace Code.Player
                     continue;
                 }
 
-                Shoot(enemy.AimPoint);
+                _newarestEnemy = enemy;
+                animator.SetTrigger("Shoot");
+                
                 yield return new WaitForSeconds(1f / actionConfig.ShootRate);
             }
         }

@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5220fb9e-4d42-44da-aa89-06fb0134124d" name="Changes" comment="" />
+    <list default="true" id="5220fb9e-4d42-44da-aa89-06fb0134124d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Player/PlayerAnimationEvents.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Player/PlayerAnimationEvents.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.BorschtTestTask/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BorschtTestTask/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Player/ShootController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Player/ShootController.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -71,7 +76,9 @@
       <workItem from="1683143429994" duration="34194000" />
       <workItem from="1683390442957" duration="52000" />
       <workItem from="1683390502582" duration="1608000" />
-      <workItem from="1683392294807" duration="1793000" />
+      <workItem from="1683392294807" duration="2755000" />
+      <workItem from="1683487912154" duration="595000" />
+      <workItem from="1683561155615" duration="563000" />
     </task>
     <task id="LOCAL-00001" summary="Initial">
       <created>1683310097221</created>
@@ -129,7 +136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683392332564</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Initial commit">
+      <created>1683395922612</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1683395922612</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -157,9 +171,9 @@
     <MESSAGE value="Added relative character view rotation" />
     <MESSAGE value="Added AnimationEvents" />
     <MESSAGE value="Backup" />
-    <MESSAGE value="Initial commit" />
     <MESSAGE value="Initial" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial" />
+    <MESSAGE value="Initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -192,13 +206,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Code/Player/ShootController.cs</url>
-          <line>46</line>
+          <line>52</line>
           <properties documentPath="D:\UnityProjects\BorschtTestTask\Assets\Code\Player\ShootController.cs" initialLine="46" containingFunctionPresentation="method 'OnEnterInZone'">
             <startOffsets>
-              <option value="1353" />
+              <option value="1665" />
             </startOffsets>
             <endOffsets>
-              <option value="1389" />
+              <option value="1701" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="21" />
