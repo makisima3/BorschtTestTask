@@ -1,5 +1,6 @@
 ﻿using System;
 using Code.Player.Configs;
+using Code.Player.Shooting;
 using Code.UI;
 using Plugins.MyUtils;
 using UnityEngine;

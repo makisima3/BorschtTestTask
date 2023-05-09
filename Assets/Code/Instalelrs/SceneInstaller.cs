@@ -1,5 +1,6 @@
 ﻿using Code.Player;
 using Code.Player.Configs;
+using Code.Player.Shooting;
 using Code.UI;
 using UnityEngine;
 using Zenject;

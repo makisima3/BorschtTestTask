@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da6a398e8b054e808b13e90e596268bf, type: 3}
+  m_Name: AkConfig
+  m_EditorClassIdentifier: 
+  ammoReserve: 30
+  ammo: 10
+  damage: 1
+  shootRate: 1
+  reloadAnimation: 0
+  shootAnimation: 0
+  isBurst: 0
+  burstCount: 0
+  burstDelay: 0

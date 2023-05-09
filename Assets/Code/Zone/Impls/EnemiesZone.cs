@@ -5,6 +5,7 @@ using Code.Enemies;
 using Code.Enemies.Enums;
 using Code.Player;
 using Code.Player.Configs;
+using Code.Player.Shooting;
 using Code.UI;
 using Code.Zone.Enums;
 using Code.Zone.Interfaces;

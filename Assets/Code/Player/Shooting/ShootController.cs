@@ -1,18 +1,15 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using System.Linq;
 using Code.Enemies;
 using Code.Player.Configs;
 using Code.Zone;
-using Code.Zone.Enums;
 using Code.Zone.Impls;
 using Code.Zone.Interfaces;
 using Plugins.MyUtils;
 using UnityEngine;
 using Zenject;
 
-namespace Code.Player
+namespace Code.Player.Shooting
 {
     [RequireComponent(typeof(PlayerAnimationEvents))]
     public class ShootController : MonoBehaviour, IZoneChecker
