@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerActionConfig
   m_EditorClassIdentifier: 
   speed: 3
-  shootRate: 2
+  shootRate: 3
   bulletPrefab: {fileID: 5230876870140530915, guid: ac94676df27020249a681b8c80fa52c9, type: 3}
   startHP: 2
   bulletsPoolSize: 10

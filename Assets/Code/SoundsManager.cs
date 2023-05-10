@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
+using Code.Player.Enums;
 using DG.Tweening;
 using Plugins.RobyyUtils;
 using UnityEngine;
@@ -10,8 +12,8 @@ namespace Code.Player
     [RequireComponent(typeof(AudioSource))]
     public class SoundsManager : MonoBehaviour
     {
-        
-        [SerializeField] private AudioClip[] AKClips;
+        [SerializeField] private AudioClip[] akClips;
+        [SerializeField] private AudioClip[] famasClips;
         [SerializeField] private AudioClip[] deathClips;
         [SerializeField] private AudioClip[] menuBackClips;
         [SerializeField] private AudioClip[] gameBackClips;
@@ -25,9 +27,17 @@ namespace Code.Player
         private Tween _volumeTween;
         private bool _isMenuBackPlaying;
 
+        private Dictionary<WeaponType, AudioClip[]> _typeToShootSounds;
+
         private void Awake()
         {
             _audioSource = GetComponent<AudioSource>();
+
+            _typeToShootSounds = new Dictionary<WeaponType, AudioClip[]>()
+            {
+                { WeaponType.AK, akClips },
+                { WeaponType.Famas, famasClips },
+            };
         }
 
         private void OnApplicationFocus(bool hasFocus)
@@ -35,9 +45,9 @@ namespace Code.Player
             _audioSource.mute = !hasFocus;
         }
 
-        public void PlayAKSound()
+        public void PlayShootSound(WeaponType type)
         {
-            _audioSource.PlayOneShot(AKClips.ChooseOne());
+            _audioSource.PlayOneShot(_typeToShootSounds[type].ChooseOne());
         }
 
         public void PlayDeathSound()

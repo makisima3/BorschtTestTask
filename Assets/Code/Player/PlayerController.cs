@@ -1,5 +1,6 @@
 ﻿using System;
 using Code.Player.Configs;
+using Code.Player.Enums;
 using Code.Player.Shooting;
 using Code.UI;
 using Plugins.MyUtils;
@@ -15,6 +16,7 @@ namespace Code.Player
         [Inject] private Joystick joystick;
         [Inject] private ShootController shootController;
         [Inject] private RestartView restartView;
+        [Inject] private PlayerAnimationsConfig playerAnimationsConfig;
 
         [SerializeField] private Animator animator;
         [SerializeField] private Transform view;
@@ -83,10 +85,10 @@ namespace Code.Player
             var relativeDirection = GetRelativeDirection(direction,view);
 
             
-            animator.SetBool("IsMoving", isMoving);
-            animator.SetFloat("speed", speed);
-            animator.SetFloat("DirectionX", relativeDirection.x);
-            animator.SetFloat("DirectionZ", relativeDirection.z);
+            animator.SetBool(playerAnimationsConfig.GetAnimationKey(PlayerAnimationType.MoveBool), isMoving);
+            animator.SetFloat(playerAnimationsConfig.GetAnimationKey(PlayerAnimationType.Speed), speed);
+            animator.SetFloat(playerAnimationsConfig.GetAnimationKey(PlayerAnimationType.DirectionX), relativeDirection.x);
+            animator.SetFloat(playerAnimationsConfig.GetAnimationKey(PlayerAnimationType.DirectionZ), relativeDirection.z);
 
             if(isMoving)
                 Move(direction);

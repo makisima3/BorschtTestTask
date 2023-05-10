@@ -1,6 +1,8 @@
 ﻿using Code.Player;
 using Code.Player.Configs;
+using Code.Player.Data;
 using Code.Player.Shooting;
+using Code.Player.Shooting.Configs;
 using Code.UI;
 using UnityEngine;
 using Zenject;
@@ -10,22 +12,36 @@ namespace Code.Instalelrs
     public class SceneInstaller : MonoInstaller
     {
         [SerializeField] private Joystick joystick;
-        [SerializeField] private PlayerActionConfig playerActionConfig;
-        [SerializeField] private PlayerController playerController;
         [SerializeField] private PlayerHpController hpController;
         [SerializeField] private ShootController shootController;
         [SerializeField] private RestartView restartView;
         [SerializeField] private Collector collector;
+        [SerializeField] private PlayerController playerController;
+        [SerializeField] private PlayerDataHolder playerDataHolder;
+        [SerializeField] private WeaponViewChanger weaponViewChanger;
+        
+        //Configs
+        [SerializeField] private PlayerActionConfig playerActionConfig;
+        [SerializeField] private PlayerDataConfig playerDataConfig;
+        [SerializeField] private WeaponsConfig weaponsConfig;
+        [SerializeField] private PlayerAnimationsConfig playerAnimationsConfig;
         
         public override void InstallBindings()
         {
             Container.Bind<Joystick>().FromInstance(joystick).AsSingle().NonLazy();
-            Container.Bind<PlayerActionConfig>().FromInstance(playerActionConfig).AsSingle().NonLazy();
             Container.Bind<PlayerController>().FromInstance(playerController).AsSingle().NonLazy();
             Container.Bind<PlayerHpController>().FromInstance(hpController).AsSingle().NonLazy();
             Container.Bind<ShootController>().FromInstance(shootController).AsSingle().NonLazy();
             Container.Bind<RestartView>().FromInstance(restartView).AsSingle().NonLazy();
             Container.Bind<Collector>().FromInstance(collector).AsSingle().NonLazy();
+            Container.Bind<PlayerDataHolder>().FromInstance(playerDataHolder).AsSingle().NonLazy();
+            Container.Bind<WeaponViewChanger>().FromInstance(weaponViewChanger).AsSingle().NonLazy();
+            
+            //Configs
+            Container.Bind<PlayerActionConfig>().FromInstance(playerActionConfig).AsSingle().NonLazy();
+            Container.Bind<PlayerDataConfig>().FromInstance(playerDataConfig).AsSingle().NonLazy();
+            Container.Bind<WeaponsConfig>().FromInstance(weaponsConfig).AsSingle().NonLazy();
+            Container.Bind<PlayerAnimationsConfig>().FromInstance(playerAnimationsConfig).AsSingle().NonLazy();
         }
     }
 }

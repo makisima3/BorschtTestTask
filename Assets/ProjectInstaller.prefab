@@ -155,7 +155,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c26ca7efd3d143de9c6c8646182277d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AKClips:
+  akClips:
+  - {fileID: 8300000, guid: 93d7b1e450c026842ba83f408712e1d7, type: 3}
+  famasClips:
   - {fileID: 8300000, guid: 110f2f237f17cfa4b867deddd7371fbd, type: 3}
   deathClips: []
   menuBackClips: []
