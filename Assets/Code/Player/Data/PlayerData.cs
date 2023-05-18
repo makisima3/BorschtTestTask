@@ -12,6 +12,7 @@ namespace Code.Player.Data
         public WeaponType Type;
         public int Ammo;
         public int AmmoReserve;
+        public bool Unlocked;
     }
     
     [Serializable]

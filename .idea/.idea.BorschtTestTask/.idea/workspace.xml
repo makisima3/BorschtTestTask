@@ -2,44 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5220fb9e-4d42-44da-aa89-06fb0134124d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Player/Configs/PlayerAnimationsConfig.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Player/Configs/PlayerAnimationsConfig.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Player/Enums/WeaponType.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Player/Enums/WeaponType.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Player/Shooting/Configs/WeaponsConfig.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Player/Shooting/Configs/WeaponsConfig.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Player/WeaponViewChanger.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Player/WeaponViewChanger.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/Weapons.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/Weapons/AmmoView.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/Weapons/AmmoView.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/Weapons/WeaponChangerView.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/Weapons/WeaponChangerView.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/Weapons/WeaponView.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/Weapons/WeaponView.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BorschtTestTask/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BorschtTestTask/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Animation/Character/Reloading.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Animation/Character/Reloading.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Animation/CharacterAC.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Animation/CharacterAC.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Sounds/Guns/AK.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Sounds/Guns/AK.mp3.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Instalelrs/SceneInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Instalelrs/SceneInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/NewBehaviourScript.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/NewBehaviourScript.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Player/BulletsPool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Player/BulletsPool.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Player/Configs/PlayerActionConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Player/Configs/PlayerActionConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Player/PlayerAnimationEvents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Player/PlayerAnimationEvents.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Player/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Player/Data/PlayerData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Player/Data/PlayerData.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Player/Shooting/Configs/WeaponConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Player/Shooting/Configs/WeaponConfig.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Player/Shooting/ShootController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Player/Shooting/ShootController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Pooling/ObjectPool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Pooling/ObjectPool.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/SoundsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/SoundsManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Configs/Enemies/EnemyActionConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Enemies/EnemyActionConfig.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Configs/Player/PlayerActionConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Player/PlayerActionConfig.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Configs/Player/Weapons/AkConfig.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Configs/Player/Weapons/AkConfig.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Low Poly Guns/Models/Guns/assault3/assault3.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Low Poly Guns/Models/Guns/assault3/assault3.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProjectInstaller.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProjectInstaller.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +14,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -58,30 +25,10 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5ef98bdc32b34702880ae9e818f390d83a00/4a/34cbe221/NativeInputSystem.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/UI/Weapons/AmmoView.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b33672c2670a41d3b6cd2c30c98a2bed284000/bc/e5e9edaf/Socket.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MeshCombiner/Scripts/MeshCombiner.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="2PIT6QYvrO9i71S3fH62CIv03DM" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -110,10 +57,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="2765784">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="2765784" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -135,6 +82,7 @@
       <workItem from="1683392294807" duration="2755000" />
       <workItem from="1683487912154" duration="595000" />
       <workItem from="1683561155615" duration="1930000" />
+      <workItem from="1684422551792" duration="141000" />
     </task>
     <task id="LOCAL-00001" summary="Initial">
       <created>1683310097221</created>
@@ -244,13 +192,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Code/Player/Shooting/ShootController.cs</url>
-          <line>205</line>
+          <line>206</line>
           <properties documentPath="D:\UnityProjects\BorschtTestTask\Assets\Code\Player\Shooting\ShootController.cs" initialLine="171" containingFunctionPresentation="method 'ShootCoroutine'">
             <startOffsets>
-              <option value="6776" />
+              <option value="6906" />
             </startOffsets>
             <endOffsets>
-              <option value="6795" />
+              <option value="6925" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="26" />

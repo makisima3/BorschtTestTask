@@ -13,6 +13,7 @@ namespace Code.Player.Shooting.Configs
         [SerializeField] private int ammo = 10;
         [SerializeField] private int damage = 1;
         [SerializeField] private float shootRate = 1;
+        [SerializeField] private float distance = 5f;
         [SerializeField] private PlayerAnimationType reloadAnimation;
         [SerializeField] private PlayerAnimationType shootAnimation;
         [SerializeField] private Bullet bulletPrefab;
@@ -34,6 +35,8 @@ namespace Code.Player.Shooting.Configs
         public int Damage => damage;
 
         public float ShootRate => shootRate;
+
+        public float Distance => distance;
 
         public PlayerAnimationType ReloadAnimation => reloadAnimation;
 

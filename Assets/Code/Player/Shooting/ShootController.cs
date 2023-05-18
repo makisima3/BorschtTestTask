@@ -170,7 +170,8 @@ namespace Code.Player.Shooting
                 return false;
             
             enemy = _enemiesZone.Enemies.OrderBy(e => Vector3.Distance(e.transform.position, transform.position)).First();
-            return enemy != null && enemy.IsAlive;
+            var distance = Vector3.Distance(enemy.transform.position, transform.position);
+            return enemy != null && enemy.IsAlive && distance <= _currentWeapon.Distance;
         }
 
         private void Update()
