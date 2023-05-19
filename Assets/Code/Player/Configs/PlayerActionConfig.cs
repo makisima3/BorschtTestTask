@@ -9,6 +9,7 @@ namespace Code.Player.Configs
         [SerializeField] private int startHP = 2;
         [SerializeField] private int bulletsPoolSize;
         [SerializeField] private float viewRotateSpeed = 10;
+        [SerializeField] private float storageRadius = 2;
 
         public float Speed => speed;
 
@@ -17,5 +18,7 @@ namespace Code.Player.Configs
         public int BulletsPoolSize => bulletsPoolSize;
 
         public float ViewRotateSpeed => viewRotateSpeed;
+
+        public float StorageRadius => storageRadius;
     }
 }

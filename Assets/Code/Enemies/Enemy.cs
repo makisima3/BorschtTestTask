@@ -1,4 +1,5 @@
 ﻿using System;
+using Code.Collectables;
 using Code.Enemies.Enums;
 using Code.Player;
 using Code.Player.Configs;
@@ -6,6 +7,7 @@ using Code.UI;
 using Code.Zone;
 using Code.Zone.Impls;
 using Code.Zone.Interfaces;
+using Plugins.RobyyUtils;
 using UnityEngine;
 using UnityEngine.Events;
 using Zenject;
@@ -97,15 +99,17 @@ namespace Code.Enemies
             OnDead.Invoke(this);
             _enemyStateMachine.CurrentState = EnemyStates.Death;
 
-            SpawnCrystalWithChance();
+            SpawnCollectableWithChance();
         }
 
-        private void SpawnCrystalWithChance()
+        private void SpawnCollectableWithChance()
         {
             if ((Random.Range(0f, 1f) > enemyActionConfig.DropCrystalChance))
                 return;
-            var crystal = container.InstantiatePrefabForComponent<Crystal>(enemyActionConfig.CrystalPrefab);
-            crystal.transform.position = transform.position;
+
+            var prefab = enemyActionConfig.CollectablesPrefab.ChooseOne();
+            var collectable = container.InstantiatePrefabForComponent<Collectable>(prefab);
+            collectable.transform.position = transform.position;
         }
 
         public void OnEnterInZone(ActionZone zone)

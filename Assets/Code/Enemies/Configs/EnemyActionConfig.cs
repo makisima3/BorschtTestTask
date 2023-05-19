@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Code.Collectables;
 using Code.Enemies.Enums;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -26,7 +27,7 @@ namespace Code.Player.Configs
         [SerializeField] private float attackDistance = 2f;
         [SerializeField] private int damage = 1;
         [SerializeField] private List<TypeToAnimation> typeToAnimations;
-        [SerializeField] private Crystal crystalPrefab;
+        [SerializeField] private List<Collectable> collectablesPrefab;
         [SerializeField, Range(0f, 1f)] private float dropCrystalChance = 0.1f;
 
         public int Hp => hp;
@@ -41,7 +42,7 @@ namespace Code.Player.Configs
 
         public int Damage => damage;
 
-        public Crystal CrystalPrefab => crystalPrefab;
+        public List<Collectable> CollectablesPrefab => collectablesPrefab;
 
         public float DropCrystalChance => dropCrystalChance;
 

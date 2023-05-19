@@ -4,6 +4,8 @@ using Code.Player.Data;
 using Code.Player.Shooting;
 using Code.Player.Shooting.Configs;
 using Code.UI;
+using Code.UI.CollectablesViews;
+using Code.UI.CollectablesViews.Configs;
 using UnityEngine;
 using Zenject;
 
@@ -20,11 +22,16 @@ namespace Code.Instalelrs
         [SerializeField] private PlayerDataHolder playerDataHolder;
         [SerializeField] private WeaponViewChanger weaponViewChanger;
         
+        [SerializeField] private BagView bagView;
+        [SerializeField] private StorageView storageView;
+        [SerializeField] private LootBagView lootBagView;
+        
         //Configs
         [SerializeField] private PlayerActionConfig playerActionConfig;
         [SerializeField] private PlayerDataConfig playerDataConfig;
         [SerializeField] private WeaponsConfig weaponsConfig;
         [SerializeField] private PlayerAnimationsConfig playerAnimationsConfig;
+        [SerializeField] private CollectablesUIConfig collectablesUIConfig;
         
         public override void InstallBindings()
         {
@@ -37,11 +44,16 @@ namespace Code.Instalelrs
             Container.Bind<PlayerDataHolder>().FromInstance(playerDataHolder).AsSingle().NonLazy();
             Container.Bind<WeaponViewChanger>().FromInstance(weaponViewChanger).AsSingle().NonLazy();
             
+            Container.Bind<BagView>().FromInstance(bagView).AsSingle().NonLazy();
+            Container.Bind<StorageView>().FromInstance(storageView).AsSingle().NonLazy();
+            Container.Bind<LootBagView>().FromInstance(lootBagView).AsSingle().NonLazy();
+            
             //Configs
             Container.Bind<PlayerActionConfig>().FromInstance(playerActionConfig).AsSingle().NonLazy();
             Container.Bind<PlayerDataConfig>().FromInstance(playerDataConfig).AsSingle().NonLazy();
             Container.Bind<WeaponsConfig>().FromInstance(weaponsConfig).AsSingle().NonLazy();
             Container.Bind<PlayerAnimationsConfig>().FromInstance(playerAnimationsConfig).AsSingle().NonLazy();
+            Container.Bind<CollectablesUIConfig>().FromInstance(collectablesUIConfig).AsSingle().NonLazy();
         }
     }
 }

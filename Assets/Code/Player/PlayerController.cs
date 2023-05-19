@@ -5,6 +5,7 @@ using Code.Player.Shooting;
 using Code.UI;
 using Plugins.MyUtils;
 using UnityEngine;
+using UnityEngine.Events;
 using Zenject;
 
 namespace Code.Player
@@ -15,6 +16,7 @@ namespace Code.Player
         [Inject] private PlayerActionConfig actionConfig;
         [Inject] private Joystick joystick;
         [Inject] private ShootController shootController;
+        [Inject] private Collector collector;
         [Inject] private RestartView restartView;
         [Inject] private PlayerAnimationsConfig playerAnimationsConfig;
 
@@ -23,10 +25,17 @@ namespace Code.Player
 
         private CharacterController _characterController;
         private Vector3 _startPosition;
+        private bool _isMoving;
+        
+        public UnityEvent OnStop { get; private set; }
+        public UnityEvent OnStartMove { get; private set; }
 
         private void Awake()
         {
+            OnStop = new UnityEvent();
+            OnStartMove = new UnityEvent();
             _characterController = GetComponent<CharacterController>();
+            
             _startPosition = transform.position;
         }
 
@@ -92,6 +101,16 @@ namespace Code.Player
 
             if(isMoving)
                 Move(direction);
+
+            if (isMoving != _isMoving)
+            {
+                if (isMoving)
+                    OnStartMove.Invoke();
+                else
+                    OnStop.Invoke();
+
+                _isMoving = isMoving;
+            }
         }
     }
 }

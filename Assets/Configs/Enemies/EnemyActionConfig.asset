@@ -29,5 +29,7 @@ MonoBehaviour:
     AnimName: GoingBack
   - EnemyState: 4
     AnimName: Hit
-  crystalPrefab: {fileID: 7301851549864589499, guid: d4318bc0a035d6e42934c01d636841f0, type: 3}
+  collectablesPrefab:
+  - {fileID: 7376990107770713748, guid: 2af23a4b7af90c643b42593ee527158a, type: 3}
+  - {fileID: 7376990107770713748, guid: d4318bc0a035d6e42934c01d636841f0, type: 3}
   dropCrystalChance: 0.295
