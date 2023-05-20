@@ -13,9 +13,18 @@ MonoBehaviour:
   m_Name: PlayerDataConfig
   m_EditorClassIdentifier: 
   playerData:
-    CellsCount: 8
+    CellsCount: 1
     StorageData: []
     CurrentWeapon: 0
     WeaponData: []
     CollectablesInBag: []
     CollectablesInBase: []
+    CurrentHP: 2
+    MaxHP: 2
+    CurrentArmor: 2
+    MaxArmor: 2
+    ArmorStartRegenDelay: 1
+    ArmorRegenPerTick: 0.1
+    ArmorTickRate: 1
+    BaseDamage: 0
+    Speed: 3

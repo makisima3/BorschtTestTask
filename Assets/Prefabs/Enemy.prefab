@@ -120,7 +120,7 @@ MonoBehaviour:
   aimPoint: {fileID: 6592553992877350310}
   enemyActionConfig: {fileID: 11400000, guid: b9ab55c6a9459604fa0c73b8e8904d82, type: 2}
   enemyAnimationEvents: {fileID: 7185087712769022357}
-  hpBar: {fileID: 4190697295716475451}
+  hpBar: {fileID: 2230054029544837629}
 --- !u!114 &5897074126804577175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -409,9 +409,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a61ecca579a37804a96a8509edd378c6, type: 3}
---- !u!114 &4190697295716475451 stripped
+--- !u!114 &2230054029544837629 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4675227358868283173, guid: a61ecca579a37804a96a8509edd378c6, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7222463376056921315, guid: a61ecca579a37804a96a8509edd378c6, type: 3}
   m_PrefabInstance: {fileID: 8847856378393853214}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: EnemyActionConfig
   m_EditorClassIdentifier: 
   hp: 2
+  armor: 1
   speed: 0.5
   rotateSpeed: 2
   attackRate: 0.5

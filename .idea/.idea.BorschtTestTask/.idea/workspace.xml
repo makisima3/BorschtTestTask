@@ -2,24 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5220fb9e-4d42-44da-aa89-06fb0134124d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Upgrades.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Upgrades/Enums.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Upgrades/Enums/UpgradeType.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Upgrades/Enums/UpgradeType.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Upgrades/UpgradePoint.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Upgrades/UpgradePoint.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BorschtTestTask/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BorschtTestTask/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Collectables/CollectablesStorage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Collectables/CollectablesStorage.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Enemies/Configs/EnemyActionConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Enemies/Configs/EnemyActionConfig.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Enemies/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Enemies/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Player/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Player/Bullet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Player/Data/PlayerData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Player/Data/PlayerData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Player/Data/PlayerDataHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Player/Data/PlayerDataHolder.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Player/PlayerHpController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Player/PlayerHpController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Player/Shooting/ShootController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Player/Shooting/ShootController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/UI/HPBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/HPBar.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/CollectablesUI/OpenBagButton.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/CollectablesUI/OpenBagButton.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Player/PlayerDataConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Player/PlayerDataConfig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemy.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/HpBarCanvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/HpBarCanvas.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +94,7 @@
       <workItem from="1683392294807" duration="2755000" />
       <workItem from="1683487912154" duration="595000" />
       <workItem from="1683561155615" duration="1930000" />
-      <workItem from="1684422551792" duration="29306000" />
+      <workItem from="1684422551792" duration="31058000" />
     </task>
     <task id="LOCAL-00001" summary="Initial">
       <created>1683310097221</created>
@@ -190,7 +180,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684508403356</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Added upgrades">
+      <created>1684589958530</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1684589958530</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -223,7 +220,8 @@
     <MESSAGE value="Added shoot animation" />
     <MESSAGE value="Added Weapon distance" />
     <MESSAGE value="Added Collectables, storages, inventory, etc." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Collectables, storages, inventory, etc." />
+    <MESSAGE value="Added upgrades" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added upgrades" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

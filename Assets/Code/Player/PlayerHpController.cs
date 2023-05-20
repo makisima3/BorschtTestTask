@@ -50,7 +50,7 @@ namespace Code.Player
         private void UpdateHpBar()
         {
             hpBar.ShowHP(playerDataHolder.PlayerData.MaxHP, playerDataHolder.PlayerData.CurrentHP);
-            hpBar.ShowArmor(playerDataHolder.PlayerData.MaxHP, playerDataHolder.PlayerData.CurrentArmor);
+            hpBar.ShowArmor(playerDataHolder.PlayerData.MaxArmor, playerDataHolder.PlayerData.CurrentArmor);
         }
         
 

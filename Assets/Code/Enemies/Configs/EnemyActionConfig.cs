@@ -21,6 +21,7 @@ namespace Code.Player.Configs
     public class EnemyActionConfig : ScriptableObject
     {
         [SerializeField] private float hp = 2;
+        [SerializeField] private float armor = 1;
         [SerializeField] private float speed = 2f;
         [SerializeField] private float rotateSpeed = 2f;
         [SerializeField] private float attackRate = 2f;
@@ -31,6 +32,8 @@ namespace Code.Player.Configs
         [SerializeField, Range(0f, 1f)] private float dropCrystalChance = 0.1f;
 
         public float Hp => hp;
+
+        public float Armor => armor;
 
         public float Speed => speed;
 

@@ -27,9 +27,10 @@ namespace Code.Enemies
         [SerializeField] private HPBar hpBar;
 
         private EnemyStateMachine _enemyStateMachine;
-        private float hp;
+        private float _hp;
+        private float _armor;
         
-        public bool IsAlive => hp > 0;
+        public bool IsAlive => _hp > 0;
 
         public EnemyActionConfig EnemyActionConfig => enemyActionConfig;
         public Transform AimPoint => aimPoint;
@@ -41,7 +42,8 @@ namespace Code.Enemies
             OnDead = new UnityEvent<Enemy>();
             _enemyStateMachine = GetComponent<EnemyStateMachine>();
             
-            hp = enemyActionConfig.Hp;
+            _hp = enemyActionConfig.Hp;
+            _armor = enemyActionConfig.Armor;
             transform.position = spawnPosition;
             StartPoint = spawnPosition;
         }
@@ -52,7 +54,9 @@ namespace Code.Enemies
             enemyAnimationEvents.OnHitAnimationOverEvent.AddListener(OnHitAnimationEventOver);
             enemyAnimationEvents.OnDeathAnimationOverEvent.AddListener(OnDeathAnimationEventOver);
             
-            playerHpController.OnDead.AddListener(BackToStartPosition);            
+            playerHpController.OnDead.AddListener(BackToStartPosition);   
+            
+            UpdateHpBar();
         }
 
         public void AttackPlayer()
@@ -70,11 +74,24 @@ namespace Code.Enemies
             if (!IsAlive)
                 return;
             
-            hp -= damage;
-            hpBar.ShowHP(enemyActionConfig.Hp, hp);
+            _armor -= damage;
+
+            if (_armor < 0)
+            {
+                _hp -= Mathf.Abs(_armor);
+                _armor = 0f;
+            }
+
+            UpdateHpBar();
             
             if (!IsAlive)
                 Death();
+        }
+        
+        private void UpdateHpBar()
+        {
+            hpBar.ShowHP(enemyActionConfig.Hp, _hp);
+            hpBar.ShowArmor(enemyActionConfig.Armor, _armor);
         }
 
         private void HitPlayer()

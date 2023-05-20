@@ -10,6 +10,7 @@ namespace Code.UI
         [SerializeField] private float animTime = 0.1f;
         [SerializeField] private Image hpImage;
         [SerializeField] private Image hpDeltaImage;
+        [SerializeField] private GameObject armorHolder;
         [SerializeField] private Image armorImage;
         [SerializeField] private Image armorDeltaImage;
 
@@ -22,6 +23,11 @@ namespace Code.UI
         
         public void ShowArmor(float maxArmor, float currentArmor)
         {
+            if (maxArmor <= 0)
+            {
+                armorHolder.SetActive(false);
+            }
+            
             var fillAmount = 1f / maxArmor * currentArmor;
             armorImage.fillAmount = fillAmount;
             armorDeltaImage.DOFillAmount(fillAmount, animTime).SetEase(Ease.Linear);
