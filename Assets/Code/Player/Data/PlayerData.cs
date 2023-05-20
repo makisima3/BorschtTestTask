@@ -36,12 +36,25 @@ namespace Code.Player.Data
         public int CellsCount;
 
         public List<StorageData> StorageData;
+        public List<Guid> UpgradePoints;
 
         public WeaponType CurrentWeapon;
         public List<WeaponData> WeaponData;
         public List<CollectableData> CollectablesInBag;
         public List<CollectableData> CollectablesInBase;
 
+        public float CurrentHP = 2f;
+        public float MaxHP = 2f;
+        
+        public float CurrentArmor = 2f;
+        public float MaxArmor = 2f;
+        public float ArmorStartRegenDelay = 1f;
+        public float ArmorRegenPerTick = 0.1f;
+        public float ArmorTickRate = 1f;
+
+        public float BaseDamage;
+        public float Speed = 3f;
+        
         public WeaponData GetWeaponData(WeaponConfig weaponConfig)
         {
             var weaponData = WeaponData.FirstOrDefault(wd => wd.Type == weaponConfig.Type);
@@ -189,6 +202,20 @@ namespace Code.Player.Data
                 Guid = guid
             };
             StorageData.Add(newStorageData);
+        }
+
+        public void AddUpgradePoint(Guid guid)
+        {
+            UpgradePoints ??= new List<Guid>();
+
+            UpgradePoints.Add(guid);
+        }
+        
+        public bool IsUpgradePointCollected(Guid guid)
+        {
+            UpgradePoints ??= new List<Guid>();
+
+            return UpgradePoints.Contains(guid);
         }
     }
 }

@@ -27,7 +27,7 @@ namespace Code.Enemies
         [SerializeField] private HPBar hpBar;
 
         private EnemyStateMachine _enemyStateMachine;
-        private int hp;
+        private float hp;
         
         public bool IsAlive => hp > 0;
 
@@ -65,7 +65,7 @@ namespace Code.Enemies
             _enemyStateMachine.CurrentState = EnemyStates.GoingBack;
         }
 
-        public void Damage(int damage)
+        public void Damage(float damage)
         {
             if (!IsAlive)
                 return;

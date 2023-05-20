@@ -158,7 +158,7 @@ namespace Code.Player.Shooting
             soundsManager.PlayShootSound(_currentWeaponData.Type);
             var pool = _typeToPool[_currentWeaponData.Type];
             var bullet = pool.GetObject();
-            bullet.Init(_newarestEnemy.AimPoint,pool,weaponViewChanger.SpawnPoint.position);
+            bullet.Init(_newarestEnemy.AimPoint,pool,weaponViewChanger.SpawnPoint.position, _currentWeapon.Damage + playerDataHolder.PlayerData.BaseDamage);
             OnBulletsCountChanged.Invoke(_currentWeaponData);
         }
 

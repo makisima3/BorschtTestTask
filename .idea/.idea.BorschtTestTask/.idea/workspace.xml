@@ -2,59 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5220fb9e-4d42-44da-aa89-06fb0134124d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Collectables.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Collectables/Collectable.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Collectables/Collectable.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Collectables/CollectablesStorage.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Collectables/CollectablesStorage.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Collectables/Configs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Collectables/Configs/CollectablesStorageConfig.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Collectables/Configs/CollectablesStorageConfig.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Collectables/Enums.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Collectables/Enums/CollectableType.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Collectables/Enums/CollectableType.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Collectables/Interfaces.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Collectables/Interfaces/IStorage.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Collectables/Interfaces/IStorage.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Collectables/PlayerBaseCollectablesStorage.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Collectables/PlayerBaseCollectablesStorage.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/AdaptiveGrid.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/AdaptiveGrid.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/CollectablesViews.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/CollectablesViews/BagView.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/CollectablesViews/Cell.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/CollectablesViews/Cell.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/CollectablesViews/Configs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/CollectablesViews/Configs/CollectablesUIConfig.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/CollectablesViews/Configs/CollectablesUIConfig.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/CollectablesViews/LootBagView.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/CollectablesViews/LootBagView.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/CollectablesViews/OpenBagButton.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/CollectablesViews/OpenBagButton.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/CollectablesViews/StorageView.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/CollectablesViews/StorageView.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/ViewBase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/ViewBase.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Upgrades.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Upgrades/Enums.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Upgrades/Enums/UpgradeType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Upgrades/Enums/UpgradeType.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Upgrades/UpgradePoint.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Upgrades/UpgradePoint.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BorschtTestTask/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BorschtTestTask/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Collectables/CollectablesStorage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Collectables/CollectablesStorage.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Enemies/Configs/EnemyActionConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Enemies/Configs/EnemyActionConfig.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Enemies/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Enemies/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Instalelrs/SceneInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Instalelrs/SceneInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Player/Collector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Player/Collector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Player/Configs/PlayerActionConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Player/Configs/PlayerActionConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Player/Crystal.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Player/Crystal.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Player/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Player/Bullet.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Player/Data/PlayerData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Player/Data/PlayerData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Player/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/CrystalsGlobalView.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/CrystalsGlobalView.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/CollectablesViews/BagView.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/CrystalsInGabView.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/CrystalsInGabView.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Configs/Enemies/EnemyActionConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Enemies/EnemyActionConfig.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Configs/Player/PlayerDataConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Player/PlayerDataConfig.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Crystal.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Crystal.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Crystal.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Crystal.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Player/Data/PlayerDataHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Player/Data/PlayerDataHolder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Player/PlayerHpController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Player/PlayerHpController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Player/Shooting/ShootController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Player/Shooting/ShootController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/HPBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/HPBar.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/CollectablesUI/OpenBagButton.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/CollectablesUI/OpenBagButton.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -140,7 +104,7 @@
       <workItem from="1683392294807" duration="2755000" />
       <workItem from="1683487912154" duration="595000" />
       <workItem from="1683561155615" duration="1930000" />
-      <workItem from="1684422551792" duration="22962000" />
+      <workItem from="1684422551792" duration="29306000" />
     </task>
     <task id="LOCAL-00001" summary="Initial">
       <created>1683310097221</created>
@@ -219,7 +183,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684422913992</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Added Collectables, storages, inventory, etc.">
+      <created>1684508403356</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1684508403356</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -251,35 +222,36 @@
     <MESSAGE value="Initial commit" />
     <MESSAGE value="Added shoot animation" />
     <MESSAGE value="Added Weapon distance" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Weapon distance" />
+    <MESSAGE value="Added Collectables, storages, inventory, etc." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Collectables, storages, inventory, etc." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Code/Collectables/CollectablesStorage.cs</url>
-          <line>69</line>
+          <line>83</line>
           <properties documentPath="D:\UnityProjects\BorschtTestTask\Assets\Code\Collectables\CollectablesStorage.cs" initialLine="71" containingFunctionPresentation="method 'AddCollectables'">
             <startOffsets>
-              <option value="2014" />
+              <option value="2362" />
             </startOffsets>
             <endOffsets>
-              <option value="2051" />
+              <option value="2399" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Code/Player/Data/PlayerData.cs</url>
-          <line>150</line>
+          <line>163</line>
           <properties documentPath="D:\UnityProjects\BorschtTestTask\Assets\Code\Player\Data\PlayerData.cs" initialLine="140" containingFunctionPresentation="method 'TryGetStorageData'">
             <startOffsets>
-              <option value="4498" />
-              <option value="4549" />
+              <option value="4906" />
+              <option value="4957" />
             </startOffsets>
             <endOffsets>
-              <option value="4564" />
-              <option value="4564" />
+              <option value="4972" />
+              <option value="4972" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="44" />

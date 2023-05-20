@@ -20,7 +20,7 @@ namespace Code.Player.Configs
     [CreateAssetMenu(fileName = "EnemyActionConfig", menuName = "ScriptableObjects/Enemies/EnemyActionConfig", order = 1)]
     public class EnemyActionConfig : ScriptableObject
     {
-        [SerializeField] private int hp = 1;
+        [SerializeField] private float hp = 2;
         [SerializeField] private float speed = 2f;
         [SerializeField] private float rotateSpeed = 2f;
         [SerializeField] private float attackRate = 2f;
@@ -30,7 +30,7 @@ namespace Code.Player.Configs
         [SerializeField] private List<Collectable> collectablesPrefab;
         [SerializeField, Range(0f, 1f)] private float dropCrystalChance = 0.1f;
 
-        public int Hp => hp;
+        public float Hp => hp;
 
         public float Speed => speed;
 

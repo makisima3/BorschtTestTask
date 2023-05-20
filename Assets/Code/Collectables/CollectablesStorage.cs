@@ -8,12 +8,13 @@ using Code.Player.Data;
 using Code.UI.CollectablesViews;
 using Code.UI.CollectablesViews.Configs;
 using UnityEngine;
+using UnityEngine.Events;
 using Zenject;
 
 namespace Code.Collectables
 {
-    
-    public class CollectablesStorage : MonoBehaviour,IStorage
+
+    public class CollectablesStorage : MonoBehaviour, IStorage
     {
         [Inject] private PlayerDataHolder playerDataHolder;
         [Inject] private StorageView storageView;
@@ -21,9 +22,10 @@ namespace Code.Collectables
 
         [SerializeField] private CollectablesStorageConfig config;
         [SerializeField] private string guid;
-        
+
         private Guid _guid;
         private StorageData _storageData;
+        private UnityEvent _onValidate;
 
         public List<CollectableData> Collectables => _storageData.Collectables;
 
@@ -44,13 +46,25 @@ namespace Code.Collectables
             _storageData = playerDataHolder.PlayerData.TryGetStorageData(_guid, config.Collectables);
         }
 
+        private void OnValidate()
+        {
+            if (_onValidate == null)
+            {
+                _onValidate = new UnityEvent();
+                _onValidate.AddListener(FillGuid);
+            }
+            
+            if(string.IsNullOrEmpty(guid))
+                _onValidate.Invoke();
+        }
+
         public void Open()
         {
             storageView.SetStorage(this);
             lootBagView.SetStorage(this);
-            
+
             storageView.UpdateBag();
-            
+
             storageView.Show();
             lootBagView.Show();
         }
@@ -60,7 +74,7 @@ namespace Code.Collectables
             var storageData = _storageData.Collectables.FirstOrDefault(c => c.Type == data.Type);
 
             if (storageData == default)
-                _storageData.Collectables.Add(new CollectableData(){Type = data.Type,Count = data.Count});
+                _storageData.Collectables.Add(new CollectableData() { Type = data.Type, Count = data.Count });
             else
                 storageData.Count += data.Count;
         }
@@ -72,17 +86,17 @@ namespace Code.Collectables
                 AddCollectable(collectableData);
             }
         }
-        
+
         public void RemoveCollectable(CollectableData data)
         {
-            var storageData =  _storageData.Collectables.FirstOrDefault(c => c.Type == data.Type);
+            var storageData = _storageData.Collectables.FirstOrDefault(c => c.Type == data.Type);
 
             /*var returnedData = new CollectableData()
             {
                 Type = storageData.Type,
                 Count = storageData.Count,
             };*/
-            
+
             _storageData.Collectables.Remove(storageData);
 
             //return returnedData;
@@ -100,6 +114,7 @@ namespace Code.Collectables
         private void FillGuid()
         {
             guid = Guid.NewGuid().ToString();
+            _onValidate.RemoveListener(FillGuid);
         }
     }
 }

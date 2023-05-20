@@ -9,15 +9,16 @@ namespace Code.Player
     public class Bullet : MonoBehaviour
     {
         [SerializeField] private float speed = 3f;
-        [SerializeField] private int damage = 1;
         
         private Transform _target;
+        private float _damage;
         private BulletsPool _bulletsPool ;
         
 
-        public void Init(Transform target,BulletsPool pool,Vector3 spawnPosition)
+        public void Init(Transform target,BulletsPool pool,Vector3 spawnPosition,float damage)
         {
             _target = target;
+            _damage = damage;
             _bulletsPool = pool;
 
             transform.position = spawnPosition;
@@ -35,7 +36,7 @@ namespace Code.Player
         {
             if (other.TryGetComponent<Enemy>(out var enemy))
             {
-                enemy.Damage(damage);
+                enemy.Damage(_damage);
             }
 
             StartCoroutine(ReturnToPoolWithDelay(0f));

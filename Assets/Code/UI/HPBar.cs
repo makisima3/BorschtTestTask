@@ -10,14 +10,21 @@ namespace Code.UI
         [SerializeField] private float animTime = 0.1f;
         [SerializeField] private Image hpImage;
         [SerializeField] private Image hpDeltaImage;
+        [SerializeField] private Image armorImage;
+        [SerializeField] private Image armorDeltaImage;
 
-        public void ShowHP(int maxHP, int currentHP)
+        public void ShowHP(float maxHP, float currentHP)
         {
             var fillAmount = 1f / maxHP * currentHP;
             hpImage.fillAmount = fillAmount;
             hpDeltaImage.DOFillAmount(fillAmount, animTime).SetEase(Ease.Linear);
         }
         
-
+        public void ShowArmor(float maxArmor, float currentArmor)
+        {
+            var fillAmount = 1f / maxArmor * currentArmor;
+            armorImage.fillAmount = fillAmount;
+            armorDeltaImage.DOFillAmount(fillAmount, animTime).SetEase(Ease.Linear);
+        }
     }
 }
