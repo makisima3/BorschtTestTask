@@ -8,6 +8,7 @@ namespace Code.UI.MenuUI
     public class AdaptiveGrid : MonoBehaviour
     {
         [SerializeField] private Vector2 gridSize = new Vector2(4, 3);
+        [SerializeField] private bool isQuad = true;
         
         private GridLayoutGroup _gridLayoutGroup;
         private RectTransform _rectTransform;
@@ -44,10 +45,15 @@ namespace Code.UI.MenuUI
             _width = _rectTransform.rect.width;
             _heith = _rectTransform.rect.height;
             
-            //var cellSize = new Vector2(_width / gridSize.x, _heith / gridSize.y);
             var size = (_width / gridSize.x) - (_gridLayoutGroup.padding.left + _gridLayoutGroup.padding.right);
             var cellSize = new Vector2(size, size);
+
+            if (!isQuad)
+            {
+                cellSize = new Vector2(_width / gridSize.x, _heith / gridSize.y);
+            }
             
+            //var cellSize = new Vector2(_width / gridSize.x, _heith / gridSize.y);
             _gridLayoutGroup.cellSize = cellSize;
         }
     }

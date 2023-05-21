@@ -6,6 +6,8 @@ using Code.Player.Shooting.Configs;
 using Code.UI;
 using Code.UI.CollectablesViews;
 using Code.UI.CollectablesViews.Configs;
+using Code.UI.Shop;
+using Code.UI.Weapons;
 using UnityEngine;
 using Zenject;
 
@@ -21,6 +23,8 @@ namespace Code.Instalelrs
         [SerializeField] private PlayerController playerController;
         [SerializeField] private PlayerDataHolder playerDataHolder;
         [SerializeField] private WeaponViewChanger weaponViewChanger;
+        [SerializeField] private WeaponShopView shopView;
+        [SerializeField] private WeaponChangerView weaponChangerView;
         
         [SerializeField] private BagView bagView;
         [SerializeField] private StorageView storageView;
@@ -32,6 +36,7 @@ namespace Code.Instalelrs
         [SerializeField] private WeaponsConfig weaponsConfig;
         [SerializeField] private PlayerAnimationsConfig playerAnimationsConfig;
         [SerializeField] private CollectablesUIConfig collectablesUIConfig;
+        [SerializeField] private WeaponShopConfig shopConfig;
         
         public override void InstallBindings()
         {
@@ -43,6 +48,8 @@ namespace Code.Instalelrs
             Container.Bind<Collector>().FromInstance(collector).AsSingle().NonLazy();
             Container.Bind<PlayerDataHolder>().FromInstance(playerDataHolder).AsSingle().NonLazy();
             Container.Bind<WeaponViewChanger>().FromInstance(weaponViewChanger).AsSingle().NonLazy();
+            Container.Bind<WeaponShopView>().FromInstance(shopView).AsSingle().NonLazy();
+            Container.Bind<WeaponChangerView>().FromInstance(weaponChangerView).AsSingle().NonLazy();
             
             Container.Bind<BagView>().FromInstance(bagView).AsSingle().NonLazy();
             Container.Bind<StorageView>().FromInstance(storageView).AsSingle().NonLazy();
@@ -54,6 +61,7 @@ namespace Code.Instalelrs
             Container.Bind<WeaponsConfig>().FromInstance(weaponsConfig).AsSingle().NonLazy();
             Container.Bind<PlayerAnimationsConfig>().FromInstance(playerAnimationsConfig).AsSingle().NonLazy();
             Container.Bind<CollectablesUIConfig>().FromInstance(collectablesUIConfig).AsSingle().NonLazy();
+            Container.Bind<WeaponShopConfig>().FromInstance(shopConfig).AsSingle().NonLazy();
         }
     }
 }

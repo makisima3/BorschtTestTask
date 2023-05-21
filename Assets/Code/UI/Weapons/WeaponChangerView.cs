@@ -19,12 +19,16 @@ namespace Code.UI.Weapons
         [SerializeField] private WeaponView weaponViewPrefab;
         [SerializeField] private Transform holder;
 
-        private void Awake()
+        private List<WeaponView> _weaponViews;
+
+        private void Start()
         {
+            _weaponViews = new List<WeaponView>();
             foreach (var typeToWeapon in weaponsConfig.TypeToWeapons)
             {
                 var weaponView = container.InstantiatePrefabForComponent<WeaponView>(weaponViewPrefab, holder);
                 weaponView.Init(typeToWeapon.Config, this);
+                _weaponViews.Add(weaponView);
             }
 
             StartCoroutine(UnityUIFix());
@@ -35,6 +39,11 @@ namespace Code.UI.Weapons
             playerDataHolder.SetWeapon(type);
         }
 
+        public void UnityFix()
+        {
+            StartCoroutine(UnityUIFix());
+        }
+        
         private IEnumerator UnityUIFix()
         {
             yield return new WaitForEndOfFrame();

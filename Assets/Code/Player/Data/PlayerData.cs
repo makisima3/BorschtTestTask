@@ -4,6 +4,7 @@ using System.Linq;
 using Code.Player.Collectables.Enums;
 using Code.Player.Enums;
 using Code.Player.Shooting.Configs;
+using UnityEngine;
 
 namespace Code.Player.Data
 {
@@ -40,6 +41,7 @@ namespace Code.Player.Data
 
         public WeaponType CurrentWeapon;
         public List<WeaponData> WeaponData;
+        public List<WeaponType> UnlockedWeapons;
         public List<CollectableData> CollectablesInBag;
         public List<CollectableData> CollectablesInBase;
 
@@ -66,12 +68,60 @@ namespace Code.Player.Data
                 Type = weaponConfig.Type,
                 Ammo = weaponConfig.Ammo,
                 AmmoReserve = weaponConfig.AmmoReserve,
+                Unlocked = UnlockedWeapons.Contains(weaponConfig.Type),
             };
             WeaponData.Add(weaponData);
 
             return weaponData;
         }
 
+        public bool IsWeaponUnlocked(WeaponType weaponType)
+        {
+            return UnlockedWeapons.Contains(weaponType);
+        }
+
+        public bool IsEnoughResources(List<CollectableData> collectableDatas)
+        {
+            var result = true;
+
+            foreach (var collectableData in collectableDatas)
+            {
+                var data = CollectablesInBase.FirstOrDefault(c => c.Type == collectableData.Type);
+                if(data != null && data.Count >= collectableData.Count)
+                    continue;
+
+                result = false;
+            }
+
+            return result;
+        }
+
+        public void RemoveResources(List<CollectableData> collectableDatas)
+        {
+            foreach (var collectableData in collectableDatas)
+            {
+                var data = CollectablesInBase.FirstOrDefault(c => c.Type == collectableData.Type);
+                if (data != null && data.Count >= collectableData.Count)
+                {
+                    data.Count -= collectableData.Count;
+                    
+                    if(data.Count < 0)
+                        Debug.LogError("You remove to much resources");
+                    data.Count = 0;
+
+                    if (data.Count <= 0)
+                        CollectablesInBase.Remove(data);
+                }
+            }
+        }
+
+        public void UnlockWeapon(WeaponConfig weaponConfig)
+        {
+            UnlockedWeapons.Add(weaponConfig.Type);
+            var data = GetWeaponData(weaponConfig);
+            data.Unlocked = true;
+        }
+        
         public void ResetAllWeaponsAmmo(WeaponsConfig weaponsConfig)
         {
             foreach (var weaponData in WeaponData)

@@ -6,6 +6,7 @@ using Code.Collectables.Interfaces;
 using Code.Player.Collectables.Enums;
 using Code.Player.Configs;
 using Code.Player.Data;
+using Code.Player.World;
 using Code.Zone;
 using Code.Zone.Impls;
 using Code.Zone.Interfaces;
@@ -22,19 +23,12 @@ namespace Code.Player
         [Inject] private PlayerController playerController;
 
         public List<CollectableData> CollectablesInBag => playerDataHolder.PlayerData.CollectablesInBag;
-        
-        public UnityEvent OnCrystalCountInBagChanged { get; private set; }
-        public UnityEvent OnCrystalCountGlobalChanged { get; private set; }
 
-        private void Awake()
-        {
-            OnCrystalCountInBagChanged = new UnityEvent();
-            OnCrystalCountGlobalChanged = new UnityEvent();
-        }
 
         private void Start()
         {
             playerController.OnStop.AddListener(GetStorage);
+            playerController.OnStop.AddListener(GetWeaponShopStorage);
         }
 
         private void GetStorage()
@@ -51,6 +45,21 @@ namespace Code.Player
                 }
             }
         }
+        
+        private void GetWeaponShopStorage()
+        {
+            var results = new Collider[999];
+            if (Physics.OverlapSphereNonAlloc(playerController.transform.position, playerActionConfig.StorageRadius, results) > 0)
+            {
+                foreach (var collider in results.Where(c => c != null))
+                {
+                    if (collider.TryGetComponent<ShopWorld>(out var shop))
+                    {
+                        shop.Show();
+                    }
+                }
+            }
+        }
 
         public bool HasFreeCells()
         {
@@ -61,14 +70,12 @@ namespace Code.Player
         {
             playerDataHolder.PlayerData.AddCollectableInBag(type,count);
             playerDataHolder.Save();
-            OnCrystalCountInBagChanged.Invoke();
         }
         
         public CollectableData RemoveCollectableFromBag(CollectableType type)
         {
             var data = playerDataHolder.PlayerData.RemoveCollectableFromBag(type);
             playerDataHolder.Save();
-            OnCrystalCountInBagChanged.Invoke();
 
             return data;
         }
@@ -94,9 +101,6 @@ namespace Code.Player
             }
 
             playerDataHolder.PlayerData.RemoveCollectablesFromBag(collectablesDataToRemove.Select(d => d.Type).ToList());
-            
-            OnCrystalCountInBagChanged.Invoke();
-            OnCrystalCountGlobalChanged.Invoke();
         }
 
         public void OnExitInZone(ActionZone zone)

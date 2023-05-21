@@ -17,6 +17,7 @@ MonoBehaviour:
     StorageData: []
     CurrentWeapon: 0
     WeaponData: []
+    UnlockedWeapons: 00000000
     CollectablesInBag: []
     CollectablesInBase: []
     CurrentHP: 2

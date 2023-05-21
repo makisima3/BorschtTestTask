@@ -1,5 +1,6 @@
 ﻿using Code.Player.Configs;
 using Code.Player.Enums;
+using Code.Player.Shooting.Configs;
 using Code.StorageObjects;
 using UnityEngine;
 using UnityEngine.Events;
@@ -15,6 +16,7 @@ namespace Code.Player.Data
 
         public PlayerData PlayerData => _playerStorageObject.Data;
         public UnityEvent<WeaponType> OnWeaponChanged { get; private set; }
+        public UnityEvent<WeaponType> OnWeaponUnlocked { get; private set; }
         public UnityEvent OnMaxHpChanged { get; private set; }
         public UnityEvent OnMaxArmorChanged { get; private set; }
 
@@ -23,8 +25,10 @@ namespace Code.Player.Data
             _playerStorageObject = new PlayerStorageObject(playerDataConfig.PlayerData).Load();
             
             OnWeaponChanged = new UnityEvent<WeaponType>();
+            OnWeaponUnlocked = new UnityEvent<WeaponType>();
             OnMaxHpChanged = new UnityEvent();
             OnMaxArmorChanged = new UnityEvent();
+            
         }
 
         private void OnApplicationQuit()
@@ -46,6 +50,16 @@ namespace Code.Player.Data
 
             PlayerData.CurrentWeapon = type;
             OnWeaponChanged.Invoke(type);
+
+            if (isSave)
+                Save();
+        }
+        
+        public void UnlockWeapon(WeaponConfig config, bool isSave = true)
+        {
+            PlayerData.UnlockWeapon(config);
+
+            OnWeaponUnlocked.Invoke(config.Type);
 
             if (isSave)
                 Save();
