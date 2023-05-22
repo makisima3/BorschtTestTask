@@ -135,7 +135,7 @@ namespace Code.Player.Data
             }
         }
 
-        public void UnlockWeapon(WeaponConfig weaponConfig)
+        public bool UnlockAndTryEquipWeapon(WeaponConfig weaponConfig)
         {
             UnlockedWeapons.Add(weaponConfig.Type);
             var data = GetWeaponData(weaponConfig);
@@ -146,11 +146,14 @@ namespace Code.Player.Data
                 if (!EnumConvertor.TryGetValue<WeaponType, CollectableType>(weaponConfig.Type, out var collectableType))
                 {
                     Debug.LogError($"Cant convert weapon type ({weaponConfig.Type}) to collectable type!");
-                    return;
+                    return false;
                 }
                 
                 AddCollectableInBase(collectableType, 1);
+                return false;
             }
+
+            return true;
         }
         
         public void ResetAllWeaponsAmmo(WeaponsConfig weaponsConfig)

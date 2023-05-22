@@ -89,9 +89,16 @@ namespace Code.Player.Data
 
         public void UnlockWeapon(WeaponConfig config, bool isSave = true)
         {
-            PlayerData.UnlockWeapon(config);
+            var isEquiped = PlayerData.UnlockAndTryEquipWeapon(config);
+                
 
             OnWeaponUnlocked.Invoke(config.Type);
+
+            if (isEquiped)
+            {
+                OnEquipedWeaponChanged.Invoke();
+                SetWeapon(config.Type);
+            }
 
             if (isSave)
                 Save();
