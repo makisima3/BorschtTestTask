@@ -20,3 +20,4 @@ MonoBehaviour:
     Icon: {fileID: 21300000, guid: d68bf5d35523a5749a6b654e7adb18b8, type: 3}
     Order: 1
   cellPrefab: {fileID: 8431380116209109874, guid: ee67ba70edf6b334c8f5a484232c774e, type: 3}
+  weaponCellPrefab: {fileID: 2307520092667794473, guid: b5088a46d25c3724286e65c2909206e6, type: 3}

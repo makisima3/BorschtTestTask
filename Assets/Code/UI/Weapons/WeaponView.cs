@@ -25,18 +25,15 @@ namespace Code.UI.Weapons
             _weaponChangerView = weaponChangerView;
 
             icon.sprite = _weaponConfig.Icon;
-            gameObject.SetActive(playerDataHolder.PlayerData.IsWeaponUnlocked(_weaponConfig.Type));
+            gameObject.SetActive(playerDataHolder.PlayerData.EquipedWeapons.Contains(_weaponConfig.Type));
             
-            playerDataHolder.OnWeaponUnlocked.AddListener(OnWeaponUnlocked);
+            playerDataHolder.OnEquipedWeaponChanged.AddListener(OnWeaponEquiped);
             button.onClick.AddListener(OnCLick);
         }
 
-        private void OnWeaponUnlocked(WeaponType type)
+        private void OnWeaponEquiped()
         {
-            if (type != _weaponConfig.Type)
-                return;
-            
-            gameObject.SetActive(true);
+            gameObject.SetActive(playerDataHolder.PlayerData.EquipedWeapons.Contains(_weaponConfig.Type));
             weaponChangerView.UnityFix();
         }
 

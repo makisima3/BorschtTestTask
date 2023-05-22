@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using Code.Player.Collectables.Enums;
 using Code.Player.Enums;
 using Code.Player.Shooting.Configs;
+using Code.Player.Utils;
 using UnityEngine;
 
 namespace Code.Player.Data
@@ -45,6 +47,9 @@ namespace Code.Player.Data
         public List<CollectableData> CollectablesInBag;
         public List<CollectableData> CollectablesInBase;
 
+        public List<WeaponType> EquipedWeapons;
+        public int unlockedWeaponCellsCount = 1;
+
         public float CurrentHP = 2f;
         public float MaxHP = 2f;
         
@@ -80,6 +85,21 @@ namespace Code.Player.Data
             return UnlockedWeapons.Contains(weaponType);
         }
 
+        public bool TryEquipWeapon(WeaponType weaponType)
+        {
+            if (EquipedWeapons.Count + 1 > unlockedWeaponCellsCount)
+                return false;
+            
+            EquipedWeapons.Add(weaponType);
+            return true;
+        }
+        
+        public bool UnequipWeapon(WeaponType weaponType)
+        {
+            EquipedWeapons.Remove(weaponType);
+            return true;
+        }
+        
         public bool IsEnoughResources(List<CollectableData> collectableDatas)
         {
             var result = true;
@@ -120,6 +140,17 @@ namespace Code.Player.Data
             UnlockedWeapons.Add(weaponConfig.Type);
             var data = GetWeaponData(weaponConfig);
             data.Unlocked = true;
+
+            if (!TryEquipWeapon(weaponConfig.Type))
+            {
+                if (!EnumConvertor.TryGetValue<WeaponType, CollectableType>(weaponConfig.Type, out var collectableType))
+                {
+                    Debug.LogError($"Cant convert weapon type ({weaponConfig.Type}) to collectable type!");
+                    return;
+                }
+                
+                AddCollectableInBase(collectableType, 1);
+            }
         }
         
         public void ResetAllWeaponsAmmo(WeaponsConfig weaponsConfig)

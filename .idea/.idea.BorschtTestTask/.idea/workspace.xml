@@ -2,28 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5220fb9e-4d42-44da-aa89-06fb0134124d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/Shop.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/Shop/Configs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/Shop/Configs/WeaponShopConfig.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/Shop/Configs/WeaponShopConfig.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/Shop/PriceView.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/Shop/PriceView.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/Shop/WeaponShopItemView.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/Shop/WeaponShopItemView.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/Shop/WeaponShopView.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/Shop/WeaponShopView.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/World.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/World/ShopWorld.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/World/ShopWorld.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/CollectablesViews/WeaponCell.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/CollectablesViews/WeaponCell.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Utils.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Utils/EnumConvertor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Utils/EnumConvertor.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BorschtTestTask/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BorschtTestTask/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Instalelrs/SceneInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Instalelrs/SceneInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Player/Collector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Player/Collector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Collectables/Enums/CollectableType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Collectables/Enums/CollectableType.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Player/Data/PlayerData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Player/Data/PlayerData.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Player/Data/PlayerDataHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Player/Data/PlayerDataHolder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/AdaptiveGrid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/AdaptiveGrid.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/Weapons/WeaponChangerView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/Weapons/WeaponChangerView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Player/Enums/WeaponType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Player/Enums/WeaponType.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Player/Shooting/Configs/WeaponsConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Player/Shooting/Configs/WeaponsConfig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Player/Shooting/ShootController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Player/Shooting/ShootController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Player/WeaponViewChanger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Player/WeaponViewChanger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/CollectablesViews/Cell.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/CollectablesViews/Cell.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/CollectablesViews/Configs/CollectablesUIConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/CollectablesViews/Configs/CollectablesUIConfig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/CollectablesViews/LootBagView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/CollectablesViews/LootBagView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/CollectablesViews/StorageView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/CollectablesViews/StorageView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/Shop/WeaponShopView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/Shop/WeaponShopView.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/UI/Weapons/WeaponView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/Weapons/WeaponView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Upgrades/Enums/UpgradeType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Upgrades/Enums/UpgradeType.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Upgrades/UpgradePoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Upgrades/UpgradePoint.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Configs/Player/PlayerDataConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Player/PlayerDataConfig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Player/Weapons/WeaponsConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Player/Weapons/WeaponsConfig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Player/Weapons/WeaponsIMPS/AkConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Player/Weapons/WeaponsIMPS/AkConfig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Player/Weapons/WeaponsIMPS/FamasConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Player/Weapons/WeaponsIMPS/FamasConfig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Shops/WeaponShopConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Shops/WeaponShopConfig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/UI/CollectablesUIConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/UI/CollectablesUIConfig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/CollectablesUI/LootBagView.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/CollectablesUI/LootBagView.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,13 +51,17 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5ef98bdc32b34702880ae9e818f390d83a00/4a/34cbe221/NativeInputSystem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/UI/Weapons/AmmoView.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/685c48cf8f0b48abb797275c046dda6a158a00/5a/08f897f7/UnityEvent`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/ExecuteEvents.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b33672c2670a41d3b6cd2c30c98a2bed284000/bc/e5e9edaf/Socket.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/109e781b32ec464d8737a667de80574210fc00/d1/f167830d/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MeshCombiner/Scripts/MeshCombiner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/685c48cf8f0b48abb797275c046dda6a158a00/3d/29644940/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="2PIT6QYvrO9i71S3fH62CIv03DM" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -106,7 +116,7 @@
       <workItem from="1683487912154" duration="595000" />
       <workItem from="1683561155615" duration="1930000" />
       <workItem from="1684422551792" duration="36259000" />
-      <workItem from="1684689447891" duration="6129000" />
+      <workItem from="1684689447891" duration="12608000" />
     </task>
     <task id="LOCAL-00001" summary="Initial">
       <created>1683310097221</created>
@@ -206,7 +216,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684591549633</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Added weaponShop">
+      <created>1684696844736</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1684696844736</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -241,36 +258,37 @@
     <MESSAGE value="Added Collectables, storages, inventory, etc." />
     <MESSAGE value="Added upgrades" />
     <MESSAGE value="Added armor to hp bar + test backpack and dmg upgrades" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added armor to hp bar + test backpack and dmg upgrades" />
+    <MESSAGE value="Added weaponShop" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added weaponShop" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Code/Collectables/CollectablesStorage.cs</url>
-          <line>83</line>
-          <properties documentPath="D:\UnityProjects\BorschtTestTask\Assets\Code\Collectables\CollectablesStorage.cs" initialLine="71" containingFunctionPresentation="method 'AddCollectables'">
+          <url>file://$PROJECT_DIR$/Assets/Code/Player/Shooting/ShootController.cs</url>
+          <line>117</line>
+          <properties documentPath="D:\UnityProjects\BorschtTestTask\Assets\Code\Player\Shooting\ShootController.cs" initialLine="110" containingFunctionPresentation="method 'ChangeWeapon'">
             <startOffsets>
-              <option value="2362" />
+              <option value="4035" />
             </startOffsets>
             <endOffsets>
-              <option value="2399" />
+              <option value="4094" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="43" />
+          <option name="timeStamp" value="56" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Code/UI/Shop/WeaponShopItemView.cs</url>
-          <line>70</line>
-          <properties documentPath="D:\UnityProjects\BorschtTestTask\Assets\Code\UI\Shop\WeaponShopItemView.cs" initialLine="70" containingFunctionPresentation="method 'OnBuy'">
+          <url>file://$PROJECT_DIR$/Assets/Code/Player/Data/PlayerDataHolder.cs</url>
+          <line>62</line>
+          <properties documentPath="D:\UnityProjects\BorschtTestTask\Assets\Code\Player\Data\PlayerDataHolder.cs" initialLine="61" containingFunctionPresentation="method 'TryEquipWeapon'">
             <startOffsets>
-              <option value="2372" />
+              <option value="1867" />
             </startOffsets>
             <endOffsets>
-              <option value="2448" />
+              <option value="1912" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="47" />
+          <option name="timeStamp" value="58" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

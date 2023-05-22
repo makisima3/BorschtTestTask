@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: WeaponShopConfig
   m_EditorClassIdentifier: 
   typeToPrice:
-  - Type: 0
+  - Type: 1
     IsADS: 0
     Price:
     - Type: 1
       Count: 1
     - Type: 2
       Count: 1
-  - Type: 1
+  - Type: 2
     IsADS: 0
     Price:
     - Type: 1

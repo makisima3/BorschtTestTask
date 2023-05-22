@@ -15,11 +15,17 @@ MonoBehaviour:
   playerData:
     CellsCount: 1
     StorageData: []
-    CurrentWeapon: 0
+    CurrentWeapon: 1
     WeaponData: []
-    UnlockedWeapons: 00000000
+    UnlockedWeapons: 01000000
     CollectablesInBag: []
-    CollectablesInBase: []
+    CollectablesInBase:
+    - Type: 1
+      Count: 2
+    - Type: 2
+      Count: 10
+    EquipedWeapons: 01000000
+    unlockedWeaponCellsCount: 1
     CurrentHP: 2
     MaxHP: 2
     CurrentArmor: 2

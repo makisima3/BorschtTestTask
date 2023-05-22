@@ -1,4 +1,5 @@
-﻿using Code.Player.Configs;
+﻿using System.Linq;
+using Code.Player.Configs;
 using Code.Player.Enums;
 using Code.Player.Shooting.Configs;
 using Code.StorageObjects;
@@ -17,18 +18,20 @@ namespace Code.Player.Data
         public PlayerData PlayerData => _playerStorageObject.Data;
         public UnityEvent<WeaponType> OnWeaponChanged { get; private set; }
         public UnityEvent<WeaponType> OnWeaponUnlocked { get; private set; }
+        public UnityEvent OnEquipedWeaponChanged { get; private set; }
         public UnityEvent OnMaxHpChanged { get; private set; }
         public UnityEvent OnMaxArmorChanged { get; private set; }
 
         public void Awake()
         {
             _playerStorageObject = new PlayerStorageObject(playerDataConfig.PlayerData).Load();
-            
+
             OnWeaponChanged = new UnityEvent<WeaponType>();
             OnWeaponUnlocked = new UnityEvent<WeaponType>();
+            OnEquipedWeaponChanged = new UnityEvent();
             OnMaxHpChanged = new UnityEvent();
             OnMaxArmorChanged = new UnityEvent();
-            
+
         }
 
         private void OnApplicationQuit()
@@ -54,7 +57,36 @@ namespace Code.Player.Data
             if (isSave)
                 Save();
         }
-        
+
+        public bool TryEquipWeapon(WeaponType type, bool isSave = true)
+        {
+            var result = PlayerData.TryEquipWeapon(type);
+
+            if (!result)
+                return false;
+
+            OnEquipedWeaponChanged.Invoke();
+            
+            SetWeapon(type);
+            
+            if (isSave)
+                Save();
+
+            return true;
+        }
+
+        public void UnequipWeapon(WeaponType type, bool isSave = true)
+        {
+            PlayerData.UnequipWeapon(type);
+
+            OnEquipedWeaponChanged.Invoke();
+
+            SetWeapon(!PlayerData.EquipedWeapons.Any() ? WeaponType.None : PlayerData.EquipedWeapons.First());
+
+            if (isSave)
+                Save();
+        }
+
         public void UnlockWeapon(WeaponConfig config, bool isSave = true)
         {
             PlayerData.UnlockWeapon(config);
@@ -68,20 +100,20 @@ namespace Code.Player.Data
         public void UpgradeMaxHp(float additionalValue, bool isSave = true)
         {
             PlayerData.MaxHP += additionalValue;
-            
+
             OnMaxHpChanged.Invoke();
-            
-            if(isSave)
+
+            if (isSave)
                 Save();
         }
-        
+
         public void UpgradeMaxArmor(float additionalValue, bool isSave = true)
         {
             PlayerData.MaxArmor += additionalValue;
-            
+
             OnMaxArmorChanged.Invoke();
-            
-            if(isSave)
+
+            if (isSave)
                 Save();
         }
     }

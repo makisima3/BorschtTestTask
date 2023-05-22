@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6a398e8b054e808b13e90e596268bf, type: 3}
   m_Name: FamasConfig
   m_EditorClassIdentifier: 
-  type: 1
+  type: 2
   icon: {fileID: 21300000, guid: 5ac3e13542a33c94984540d9501f9d6c, type: 3}
   ammoReserve: 30
   ammo: 12
   damage: 1
   shootRate: 3
+  distance: 5
   reloadAnimation: 2
   shootAnimation: 1
   bulletPrefab: {fileID: 5230876870140530915, guid: ac94676df27020249a681b8c80fa52c9, type: 3}

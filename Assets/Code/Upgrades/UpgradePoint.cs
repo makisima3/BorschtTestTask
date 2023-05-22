@@ -29,6 +29,7 @@ namespace Code.Player.Upgrades
                 { UpgradeType.Bag, UpgradeBag },
                 { UpgradeType.Speed, UpgradeSpeed },
                 { UpgradeType.BaseDamage, UpgradeBaseDamage },
+                { UpgradeType.WeaponCell, UpgradeWeaponCell },
             };
             
             if (Guid.TryParse(guid, out var result))
@@ -57,6 +58,11 @@ namespace Code.Player.Upgrades
             
             if(string.IsNullOrEmpty(guid))
                 _onValidate.Invoke();
+        }
+        
+        private void UpgradeWeaponCell()
+        {
+            playerDataHolder.PlayerData.unlockedWeaponCellsCount += (int) value;
         }
         
         private void UpgradeHP()

@@ -43,6 +43,7 @@ namespace Code.Player.Shooting
         private WeaponConfig _currentWeapon;
         private WeaponData _currentWeaponData;
         private bool _isOnReload;
+        private bool _haveWeapon;
 
         private Dictionary<WeaponType, BulletsPool> _typeToPool;
 
@@ -57,6 +58,9 @@ namespace Code.Player.Shooting
 
             foreach (WeaponType weaponType in Enum.GetValues(typeof(WeaponType)))
             {
+                if(weaponType == WeaponType.None)
+                    continue;
+                
                 var holder = new GameObject();
                 holder.transform.SetParent(bulletsHolder);
                 holder.name = $"{weaponType}BulletsHolder";
@@ -103,6 +107,14 @@ namespace Code.Player.Shooting
 
         private void ChangeWeapon(WeaponType weaponType)
         {
+            if (weaponType == WeaponType.None)
+            {
+                _haveWeapon = false;
+                return;
+            }
+            
+            _haveWeapon = true;
+            
             _currentWeapon = weaponsConfig.GetWeaponConfig(weaponType);
             _currentWeaponData = playerDataHolder.PlayerData.GetWeaponData(_currentWeapon);
             
@@ -148,7 +160,7 @@ namespace Code.Player.Shooting
         
         private void Shoot()
         {
-            if(_isShootingDisabled)
+            if(_isShootingDisabled || !_haveWeapon)
                 return;
 
             if(_currentWeaponData.Ammo <= 0)

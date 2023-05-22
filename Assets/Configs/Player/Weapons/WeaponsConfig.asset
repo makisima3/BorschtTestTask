@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WeaponsConfig
   m_EditorClassIdentifier: 
   typeToWeapons:
-  - Type: 0
-    Config: {fileID: 11400000, guid: 374e24e964bdcfa4ca750dd5570d82a5, type: 2}
   - Type: 1
+    Config: {fileID: 11400000, guid: 374e24e964bdcfa4ca750dd5570d82a5, type: 2}
+  - Type: 2
     Config: {fileID: 11400000, guid: 08f6c34f527a81c4cb16395adde57f36, type: 2}

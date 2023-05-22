@@ -5,6 +5,9 @@ using Code.Collectables.Interfaces;
 using Code.Player;
 using Code.Player.Collectables.Enums;
 using Code.Player.Data;
+using Code.Player.Enums;
+using Code.Player.Shooting.Configs;
+using Code.Player.Utils;
 using Code.UI.CollectablesViews.Configs;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,6 +18,8 @@ namespace Code.UI.CollectablesViews
     public class StorageView : ViewBase
     {
         [Inject] private CollectablesUIConfig collectablesUIConfig;
+        [Inject] private WeaponsConfig weaponsConfig;
+        [Inject] private PlayerDataHolder playerDataHolder;
         [Inject] private DiContainer container;
         [Inject] private Collector collector;
         [Inject] private LootBagView lootBagView;
@@ -75,11 +80,21 @@ namespace Code.UI.CollectablesViews
             CreateCells(_storage.Collectables.Count);
             
             var counter = 0;
-            foreach (var collectableData in _storage.Collectables.OrderBy(c => collectablesUIConfig.GetOrder(c.Type)))
+            foreach (var collectableData in _storage.Collectables.OrderBy(c => GetOrder(c.Type)))
             {
                 _cells[counter].SetType(collectableData.Type, collectableData.Count);
                 counter++;
             }
+        }
+
+        private int GetOrder(CollectableType type)
+        {
+            if (EnumConvertor.TryGetValue<CollectableType, WeaponType>(type, out var weaponType))
+            {
+                return  weaponsConfig.GetOrder(weaponType);
+            }
+            
+            return collectablesUIConfig.GetOrder(type);
         }
         
         private void GetAll()
@@ -104,6 +119,17 @@ namespace Code.UI.CollectablesViews
         
         private void CellTapAction(CollectableData collectableData)
         {
+            if (EnumConvertor.TryGetValue<CollectableType, WeaponType>(collectableData.Type, out var weaponType))
+            {
+                if(playerDataHolder.TryEquipWeapon(weaponType))
+                    _storage.RemoveCollectable(collectableData);
+                
+                UpdateBag();
+                lootBagView.UpdateBag();
+                
+                return;
+            }
+            
             if(!collector.HasFreeCells())
                 return;
             

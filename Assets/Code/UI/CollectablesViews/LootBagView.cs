@@ -5,6 +5,8 @@ using Code.Collectables.Interfaces;
 using Code.Player;
 using Code.Player.Collectables.Enums;
 using Code.Player.Data;
+using Code.Player.Enums;
+using Code.Player.Utils;
 using Code.UI.CollectablesViews.Configs;
 using UnityEngine;
 using UnityEngine.UI;
@@ -27,8 +29,10 @@ namespace Code.UI.CollectablesViews
        
         
         [SerializeField] private Transform cellsHolder;
+        [SerializeField] private Transform weaponCellsHolder;
 
         private List<Cell> _cells;
+        private List<WeaponCell> _weaponCells;
 
         protected override void Awake()
         {
@@ -57,6 +61,7 @@ namespace Code.UI.CollectablesViews
         private void CreateCells()
         {
             ClearCells();
+            ClearWeaponCells();
             
             for (int i = 0; i < playerDataHolder.PlayerData.CellsCount; i++)
             {
@@ -64,6 +69,14 @@ namespace Code.UI.CollectablesViews
                 newCell.SetAction(CellTapAction);
                 newCell.SetType(CollectableType.None, 0);
                 _cells.Add(newCell);
+            }
+            
+            for (int i = 0; i < playerDataHolder.PlayerData.unlockedWeaponCellsCount + 1; i++)
+            {
+                var newCell = container.InstantiatePrefabForComponent<WeaponCell>(collectablesUIConfig.WeaponCellPrefab, weaponCellsHolder);
+                newCell.SetAction(WeaponCellTapAction);
+                newCell.SetType(WeaponType.None, i < playerDataHolder.PlayerData.unlockedWeaponCellsCount);
+                _weaponCells.Add(newCell);
             }
         }
         
@@ -78,6 +91,18 @@ namespace Code.UI.CollectablesViews
             
             _cells.Clear();
         }
+
+        private void ClearWeaponCells()
+        {
+            _weaponCells ??= new List<WeaponCell>();
+            
+            foreach (var cell in _weaponCells)
+            {
+                Destroy(cell.gameObject);
+            }
+            
+            _weaponCells.Clear();
+        }
         
         public void UpdateBag()
         {
@@ -87,6 +112,14 @@ namespace Code.UI.CollectablesViews
             foreach (var collectableData in playerDataHolder.PlayerData.CollectablesInBag.OrderBy(c => collectablesUIConfig.GetOrder(c.Type)))
             {
                 _cells[counter].SetType(collectableData.Type, collectableData.Count);
+                counter++;
+            }
+
+            counter = 0;
+
+            foreach (var equipedWeapon in playerDataHolder.PlayerData.EquipedWeapons)
+            {
+                _weaponCells[counter].SetType(equipedWeapon, true);
                 counter++;
             }
         }
@@ -108,6 +141,16 @@ namespace Code.UI.CollectablesViews
         {
             _storage.AddCollectable(collectableData);
             collector.RemoveCollectableFromBag(collectableData.Type);
+            
+            UpdateBag();
+            storageView.UpdateBag();
+        }
+        
+        private void WeaponCellTapAction(WeaponType weaponType)
+        {
+            EnumConvertor.TryGetValue<WeaponType, CollectableType>(weaponType, out var collectableType);
+            _storage.AddCollectable(new CollectableData(){Type = collectableType, Count = 1});
+            playerDataHolder.UnequipWeapon(weaponType);
             
             UpdateBag();
             storageView.UpdateBag();

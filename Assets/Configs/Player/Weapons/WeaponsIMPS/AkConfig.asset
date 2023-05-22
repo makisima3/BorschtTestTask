@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6a398e8b054e808b13e90e596268bf, type: 3}
   m_Name: AkConfig
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
   icon: {fileID: 21300000, guid: 34d43d2b131822a42b8672fd4b5cc8da, type: 3}
   ammoReserve: 30
   ammo: 10
   damage: 1
   shootRate: 5
+  distance: 5
   reloadAnimation: 2
   shootAnimation: 1
   bulletPrefab: {fileID: 5230876870140530915, guid: ac94676df27020249a681b8c80fa52c9, type: 3}

@@ -28,6 +28,9 @@ namespace Code.UI.Shop
 
             foreach (WeaponType value in Enum.GetValues(typeof(WeaponType)))
             {
+                if(value == WeaponType.None)
+                    continue;
+                
                 CreateWeaponShopItems(value);
             }
         }

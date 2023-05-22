@@ -19,8 +19,10 @@ namespace Code.UI.CollectablesViews.Configs
     {
         [SerializeField] private List<TypeToIcon> typeToIcons;
         [SerializeField] private Cell cellPrefab;
+        [SerializeField] private WeaponCell weaponCellPrefab;
 
         public Cell CellPrefab => cellPrefab;
+        public WeaponCell WeaponCellPrefab => weaponCellPrefab;
 
         public Sprite GetIcon(CollectableType type)
         {

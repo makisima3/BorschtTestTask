@@ -11,6 +11,7 @@ namespace Code.Player.Shooting.Configs
     public class TypeToWeapon
     {
         public WeaponType Type;
+        public int InventoryOrder;
         public WeaponConfig Config;
     }
     
@@ -26,5 +27,9 @@ namespace Code.Player.Shooting.Configs
             return typeToWeapons.First(ttw => ttw.Type == type).Config;
         }
 
+        public int GetOrder(WeaponType type)
+        {
+            return typeToWeapons.First(ttw => ttw.Type == type).InventoryOrder;
+        }
     }
 }
