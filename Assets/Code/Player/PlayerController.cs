@@ -22,11 +22,12 @@ namespace Code.Player
 
         [SerializeField] private Animator animator;
         [SerializeField] private Transform view;
+        [SerializeField] private bool keyboardController;
 
         private CharacterController _characterController;
         private Vector3 _startPosition;
         private bool _isMoving;
-        
+
         public UnityEvent OnStop { get; private set; }
         public UnityEvent OnStartMove { get; private set; }
 
@@ -86,10 +87,17 @@ namespace Code.Player
             direction.z = direction.y;
             direction.y = 0f;
 
-           if(!shootController.IsShooting)
-                view.rotation = ExtraMathf.GetRotation(direction, Vector3.up);
+            if (keyboardController)
+            {
+                direction.x = Input.GetAxis("Horizontal");
+                direction.z = Input.GetAxis("Vertical");
+            }
             
             var isMoving = direction != Vector3.zero;
+
+            if(!shootController.IsShooting && isMoving)
+                view.rotation = ExtraMathf.GetRotation(direction, Vector3.up);
+            
             var speed = direction.magnitude;
             var relativeDirection = GetRelativeDirection(direction,view);
 
