@@ -61,8 +61,11 @@ namespace Code.Player
             }
         }
 
-        public bool HasFreeCells()
+        public bool HasFreeCells(CollectableType type)
         {
+            if (CollectablesInBag.Any(t => t.Type == type))
+                return true;
+            
             return playerDataHolder.PlayerData.CollectablesInBag.Count < playerDataHolder.PlayerData.CellsCount;
         }
         

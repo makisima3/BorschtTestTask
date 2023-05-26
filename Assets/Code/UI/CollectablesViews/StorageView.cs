@@ -102,7 +102,7 @@ namespace Code.UI.CollectablesViews
             var collectableDataToRemove = new List<CollectableData>();
             foreach (var collectableData in _storage.Collectables)
             {
-                if(!collector.HasFreeCells())
+                if(!collector.HasFreeCells(collectableData.Type))
                     break;
                 
                 collectableDataToRemove.Add(collectableData);
@@ -130,7 +130,7 @@ namespace Code.UI.CollectablesViews
                 return;
             }
             
-            if(!collector.HasFreeCells())
+            if(!collector.HasFreeCells(collectableData.Type))
                 return;
             
             _storage.RemoveCollectable(collectableData);

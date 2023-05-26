@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a94903ecc7349d886ee1e5baca7011f, type: 3}
   m_Name: PlayerActionConfig
   m_EditorClassIdentifier: 
-  speed: 3
-  shootRate: 3
-  bulletPrefab: {fileID: 5230876870140530915, guid: ac94676df27020249a681b8c80fa52c9, type: 3}
+  speed: 7
   startHP: 2
   bulletsPoolSize: 10
   viewRotateSpeed: 10
+  storageRadius: 2

@@ -2,6 +2,7 @@
 using Code.StateMachine;
 using Plugins.MyUtils;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Code.Enemies.States
 {
@@ -10,6 +11,7 @@ namespace Code.Enemies.States
         private Enemy _enemy;
         private CharacterController _characterController;
         private EnemyStateMachine _enemyStateMachine;
+        private NavMeshAgent _navMeshAgent;
 
         [SerializeField] private Animator animator;
         
@@ -25,21 +27,26 @@ namespace Code.Enemies.States
             
             if (_enemyStateMachine == null)
                 _enemyStateMachine = GetComponent<EnemyStateMachine>();
+            
+            if (_navMeshAgent == null)
+                _navMeshAgent = GetComponent<NavMeshAgent>();
 
             if (Vector3.Distance(transform.position, _enemy.StartPoint) <= _enemy.EnemyActionConfig.AttackDistance)
                 _enemyStateMachine.CurrentState = EnemyStates.Idle;
             else
                 animator.SetTrigger(_enemy.EnemyActionConfig.GetAnimation(Type));
+
+            _navMeshAgent.isStopped = false;
         }
 
         public void OnExit()
         {
-            
+            _navMeshAgent.isStopped = true;
         }
 
         public void Loop()
         {
-            Rotate();
+            //Rotate();
             Move();
 
             if (Vector3.Distance(transform.position, _enemy.StartPoint) <= _enemy.EnemyActionConfig.AttackDistance)
@@ -57,7 +64,8 @@ namespace Code.Enemies.States
 
         private void Move()
         {
-            _characterController.Move(transform.forward * _enemy.EnemyActionConfig.Speed * Time.deltaTime);
+            //_characterController.Move(transform.forward * _enemy.EnemyActionConfig.Speed * Time.deltaTime);
+            _navMeshAgent.SetDestination(_enemy.StartPoint);
         }
     }
 }

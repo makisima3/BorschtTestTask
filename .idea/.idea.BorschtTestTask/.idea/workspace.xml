@@ -3,8 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="5220fb9e-4d42-44da-aa89-06fb0134124d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BorschtTestTask/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BorschtTestTask/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Player/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Configs/ZoneActionConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/ZoneActionConfig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Enemies/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Enemies/Enemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Enemies/States/AttackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Enemies/States/AttackState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Enemies/States/GoingBackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Enemies/States/GoingBackState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Player/Collector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Player/Collector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/CollectablesViews/StorageView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/CollectablesViews/StorageView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Zone/Impls/EnemiesZone.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Zone/Impls/EnemiesZone.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Player/PlayerActionConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Player/PlayerActionConfig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemy.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameTest1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameTest1.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,10 +74,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="16880">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="16880" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -243,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685113248863</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Added map">
+      <created>1685117258374</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1685117258374</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -285,7 +299,8 @@
     <MESSAGE value="Added zombies sounds" />
     <MESSAGE value="Added pc controlling" />
     <MESSAGE value="Scene" />
-    <option name="LAST_COMMIT_MESSAGE" value="Scene" />
+    <MESSAGE value="Added map" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added map" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -328,6 +343,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="60" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Code/UI/CollectablesViews/StorageView.cs</url>
+          <line>121</line>
+          <properties documentPath="D:\UnityProjects\BorschtTestTask\Assets\Code\UI\CollectablesViews\StorageView.cs" initialLine="121" containingFunctionPresentation="method 'CellTapAction'">
+            <startOffsets>
+              <option value="3659" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3760" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="62" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

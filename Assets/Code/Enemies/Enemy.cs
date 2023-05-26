@@ -9,6 +9,7 @@ using Code.Zone.Impls;
 using Code.Zone.Interfaces;
 using Plugins.RobyyUtils;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Events;
 using Zenject;
 using Random = UnityEngine.Random;
@@ -47,6 +48,7 @@ namespace Code.Enemies
             
             _hp = enemyActionConfig.Hp;
             _armor = enemyActionConfig.Armor;
+            
             transform.position = spawnPosition;
             StartPoint = spawnPosition;
         }

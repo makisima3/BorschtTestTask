@@ -3,6 +3,7 @@ using Code.Player;
 using Code.StateMachine;
 using Plugins.MyUtils;
 using UnityEngine;
+using UnityEngine.AI;
 using Zenject;
 
 namespace Code.Enemies.States
@@ -18,6 +19,7 @@ namespace Code.Enemies.States
         private Enemy _enemy;
         private CharacterController _characterController;
         private EnemyStateMachine _enemyStateMachine;
+        private NavMeshAgent _navMeshAgent;
             
         public EnemyStates Type => EnemyStates.Attack;
 
@@ -29,7 +31,10 @@ namespace Code.Enemies.States
                 _characterController = GetComponent<CharacterController>();
             if (_enemyStateMachine == null)
                 _enemyStateMachine = GetComponent<EnemyStateMachine>();
-            
+            if (_navMeshAgent == null)
+                _navMeshAgent = GetComponent<NavMeshAgent>();
+
+            _navMeshAgent.isStopped = false;
             animator.SetTrigger(_enemy.EnemyActionConfig.GetAnimation(Type));
             
             zombieSoundManager.PlayAngrySound();
@@ -37,12 +42,12 @@ namespace Code.Enemies.States
 
         public void OnExit()
         {
-            
+            _navMeshAgent.isStopped = true;
         }
 
         public void Loop()
         {
-            Rotate();
+            //Rotate();
             Move();
 
             if (Vector3.Distance(playerController.transform.position, transform.position) <= _enemy.EnemyActionConfig.AttackDistance)
@@ -60,7 +65,8 @@ namespace Code.Enemies.States
 
         private void Move()
         {
-            _characterController.Move(transform.forward * _enemy.EnemyActionConfig.Speed * Time.deltaTime);
+           // _characterController.Move(transform.forward * _enemy.EnemyActionConfig.Speed * Time.deltaTime);
+           _navMeshAgent.SetDestination(playerController.transform.position);
         }
     }
 }

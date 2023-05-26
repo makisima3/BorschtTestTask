@@ -10,6 +10,7 @@ using Code.UI;
 using Code.Zone.Enums;
 using Code.Zone.Interfaces;
 using UnityEngine;
+using UnityEngine.AI;
 using Zenject;
 using Random = UnityEngine.Random;
 
@@ -39,14 +40,19 @@ namespace Code.Zone.Impls
 
         private void Start()
         {
-            _spawnCoroutine = StartCoroutine(SpawnCoroutine());
+            //_spawnCoroutine = StartCoroutine(SpawnCoroutine());
+            for (int i = 0; i < actionConfig.MAXEnemies; i++)
+            {
+                SpawnEnemy();
+            }
             playerHpController.OnDead.AddListener(() => _isPlayerInside = false);
         }
 
         private Enemy SpawnEnemy()
         {
-            var enemy = container.InstantiatePrefabForComponent<Enemy>(actionConfig.EnemyPrefab);
-            enemy.Init(GetRandomPoint());
+            var point = GetRandomPoint();
+            var enemy = container.InstantiatePrefabForComponent<Enemy>(actionConfig.EnemyPrefab,point,Quaternion.identity,null);
+            enemy.Init(point);
             enemy.OnDead.AddListener(OnEnemyDead);
             _enemies.Add(enemy);
 
@@ -65,6 +71,12 @@ namespace Code.Zone.Impls
                 z = transform.position.z + Random.Range(-halfZ, halfZ),
             };
 
+            if(NavMesh.SamplePosition(point, out var myNavHit, 1000 , -1))
+            {
+                point = myNavHit.position;
+            }
+
+            
             return point;
         }
 
