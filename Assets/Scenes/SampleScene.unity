@@ -4859,6 +4859,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1578430091}
   view: {fileID: 1929783614}
+  keyboardController: 1
 --- !u!143 &2103595022
 CharacterController:
   m_ObjectHideFlags: 0
