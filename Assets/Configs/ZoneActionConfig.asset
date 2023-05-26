@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: ZoneActionConfig
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 2362769231246746887, guid: 1eeeec2991609e44d8ce6697b6c32d8d, type: 3}
-  maxEnemies: 3
+  maxEnemies: 10
   spawnRate: 1

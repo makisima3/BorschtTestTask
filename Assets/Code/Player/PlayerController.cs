@@ -50,7 +50,7 @@ namespace Code.Player
 
         private void Move(Vector3 direction)
         {
-            _characterController.Move(direction * actionConfig.Speed * Time.deltaTime);
+            _characterController.Move((direction + Vector3.down) * actionConfig.Speed * Time.deltaTime);
         }
 
         private Vector3 GetRelativeDirection(Vector3 direction)
