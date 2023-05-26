@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5220fb9e-4d42-44da-aa89-06fb0134124d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Enemies/ZombieSoundManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Enemies/ZombieSoundManager.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BorschtTestTask/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BorschtTestTask/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Enemies/Configs/EnemyActionConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Enemies/Configs/EnemyActionConfig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Enemies/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Enemies/Enemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Enemies/States/AttackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Enemies/States/AttackState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Enemies/States/HitState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Enemies/States/HitState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Enemies/States/IdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Enemies/States/IdleState.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +93,7 @@
       <workItem from="1683561155615" duration="1930000" />
       <workItem from="1684422551792" duration="36259000" />
       <workItem from="1684689447891" duration="15338000" />
-      <workItem from="1685042987640" duration="885000" />
+      <workItem from="1685042987640" duration="2199000" />
     </task>
     <task id="LOCAL-00001" summary="Initial">
       <created>1683310097221</created>
@@ -209,7 +214,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684745847766</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Added ambientSounds">
+      <created>1685111025178</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1685111025178</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,7 +259,8 @@
     <MESSAGE value="Added weaponShop" />
     <MESSAGE value="Added weapon cells" />
     <MESSAGE value="Weapon slots fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Weapon slots fixes" />
+    <MESSAGE value="Added ambientSounds" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added ambientSounds" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

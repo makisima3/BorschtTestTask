@@ -13,6 +13,7 @@ namespace Code.Enemies.States
         [Inject] private PlayerController playerController;
 
         [SerializeField] private Animator animator;
+        [SerializeField] private ZombieSoundManager zombieSoundManager;
         
         private Enemy _enemy;
         private CharacterController _characterController;
@@ -30,6 +31,8 @@ namespace Code.Enemies.States
                 _enemyStateMachine = GetComponent<EnemyStateMachine>();
             
             animator.SetTrigger(_enemy.EnemyActionConfig.GetAnimation(Type));
+            
+            zombieSoundManager.PlayAngrySound();
         }
 
         public void OnExit()

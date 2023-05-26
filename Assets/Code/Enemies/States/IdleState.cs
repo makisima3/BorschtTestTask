@@ -1,12 +1,17 @@
 ﻿using Code.Enemies.Enums;
+using Code.Player;
 using Code.StateMachine;
 using UnityEngine;
+using Zenject;
 
 namespace Code.Enemies.States
 {
     public class IdleState : MonoBehaviour, IState<EnemyStates>
     {
+        [Inject] private PlayerController playerController;
+        
         [SerializeField] private Animator animator;
+        [SerializeField] private ZombieSoundManager zombieSoundManager;
         
         private Enemy _enemy;
         
@@ -27,7 +32,8 @@ namespace Code.Enemies.States
 
         public void Loop()
         {
-           
+           if(Vector3.Distance(playerController.transform.position, transform.position) <= _enemy.EnemyActionConfig.DistanceToWalkSound)
+               zombieSoundManager.PlayWalkSound();
         }
     }
 }

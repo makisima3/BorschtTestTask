@@ -19,6 +19,7 @@ MonoBehaviour:
   attackRate: 0.5
   attackDistance: 0.9
   damage: 1
+  dropCrystalChance: 0.295
   typeToAnimations:
   - EnemyState: 0
     AnimName: Idle
@@ -33,4 +34,17 @@ MonoBehaviour:
   collectablesPrefab:
   - {fileID: 7376990107770713748, guid: 2af23a4b7af90c643b42593ee527158a, type: 3}
   - {fileID: 7376990107770713748, guid: d4318bc0a035d6e42934c01d636841f0, type: 3}
-  dropCrystalChance: 0.295
+  walkSoundsRate: 10
+  distanceToWalkSound: 10
+  attackSounds:
+  - {fileID: 8300000, guid: ddb23d474c3e0394299ff965e3555bdb, type: 3}
+  - {fileID: 8300000, guid: 87bb533e762ab1845809c066e3ae0dbf, type: 3}
+  angrySounds:
+  - {fileID: 8300000, guid: df9fcfd939aad514b8f60d465e60d16a, type: 3}
+  - {fileID: 8300000, guid: 89e0a70d8b4c53f4bab966e4a407e019, type: 3}
+  damagedSounds:
+  - {fileID: 8300000, guid: 68030accbf575e34b8321634844c0376, type: 3}
+  - {fileID: 8300000, guid: cf4402aba566590478e9f46b1ace5aa9, type: 3}
+  walkingSounds:
+  - {fileID: 8300000, guid: 598c61c62214731488498fa4fe06d950, type: 3}
+  - {fileID: 8300000, guid: 6aff4de6a77719f48bc15cd80707ab9e, type: 3}

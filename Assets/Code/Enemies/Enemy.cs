@@ -25,6 +25,7 @@ namespace Code.Enemies
         [SerializeField] private EnemyActionConfig enemyActionConfig;
         [SerializeField] private EnemyAnimationEvents enemyAnimationEvents;
         [SerializeField] private HPBar hpBar;
+        [SerializeField] private ZombieSoundManager zombieSoundManager;
 
         private EnemyStateMachine _enemyStateMachine;
         private float _hp;
@@ -41,6 +42,8 @@ namespace Code.Enemies
         {
             OnDead = new UnityEvent<Enemy>();
             _enemyStateMachine = GetComponent<EnemyStateMachine>();
+            
+            zombieSoundManager.Init(enemyActionConfig);
             
             _hp = enemyActionConfig.Hp;
             _armor = enemyActionConfig.Armor;
@@ -83,7 +86,7 @@ namespace Code.Enemies
             }
 
             UpdateHpBar();
-            
+
             if (!IsAlive)
                 Death();
         }
