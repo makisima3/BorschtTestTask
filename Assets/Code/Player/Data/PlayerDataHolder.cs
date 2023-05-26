@@ -46,6 +46,12 @@ namespace Code.Player.Data
             _playerStorageObject.Save();
         }
 
+        public void ClearData()
+        {
+            _playerStorageObject.Data = playerDataConfig.PlayerData;
+            Save();
+        }
+
         public void SetWeapon(WeaponType type, bool isSave = true)
         {
             if (type == PlayerData.CurrentWeapon)

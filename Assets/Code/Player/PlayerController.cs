@@ -5,12 +5,13 @@ using Code.Player.Shooting;
 using Code.UI;
 using Plugins.MyUtils;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Events;
 using Zenject;
 
 namespace Code.Player
 {
-    [RequireComponent(typeof(CharacterController))]
+    [RequireComponent(typeof(NavMeshAgent))]
     public class PlayerController : MonoBehaviour
     {
         [Inject] private PlayerActionConfig actionConfig;
@@ -24,7 +25,7 @@ namespace Code.Player
         [SerializeField] private Transform view;
         [SerializeField] private bool keyboardController;
 
-        private CharacterController _characterController;
+        private NavMeshAgent _navMeshAgent;
         private Vector3 _startPosition;
         private bool _isMoving;
 
@@ -35,7 +36,15 @@ namespace Code.Player
         {
             OnStop = new UnityEvent();
             OnStartMove = new UnityEvent();
-            _characterController = GetComponent<CharacterController>();
+            
+            _navMeshAgent = GetComponent<NavMeshAgent>();
+            _navMeshAgent.speed = actionConfig.Speed;
+            
+            
+            if(NavMesh.SamplePosition(transform.position, out var myNavHit, 1000 , -1))
+            {
+                transform.position = myNavHit.position;
+            }
             
             _startPosition = transform.position;
         }
@@ -50,7 +59,7 @@ namespace Code.Player
 
         private void Move(Vector3 direction)
         {
-            _characterController.Move((direction + Vector3.down) * actionConfig.Speed * Time.deltaTime);
+            _navMeshAgent.SetDestination(transform.position + (direction) * actionConfig.Speed );
         }
 
         private Vector3 GetRelativeDirection(Vector3 direction)

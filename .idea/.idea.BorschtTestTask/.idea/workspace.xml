@@ -2,15 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5220fb9e-4d42-44da-aa89-06fb0134124d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/ClearPlayerData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/ClearPlayerData.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BorschtTestTask/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BorschtTestTask/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Enemies/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Enemies/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Enemies/States/AttackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Enemies/States/AttackState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Enemies/States/GoingBackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Enemies/States/GoingBackState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Player/Collector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Player/Collector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/CollectablesViews/StorageView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/CollectablesViews/StorageView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Zone/Impls/EnemiesZone.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Zone/Impls/EnemiesZone.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Configs/Player/PlayerActionConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Player/PlayerActionConfig.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemy.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Player/Data/PlayerDataHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Player/Data/PlayerDataHolder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Player/PlayerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameTest1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameTest1.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -257,7 +253,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685117258374</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Added navmesh to enemies">
+      <created>1685121284253</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1685121284253</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,20 +303,21 @@
     <MESSAGE value="Added pc controlling" />
     <MESSAGE value="Scene" />
     <MESSAGE value="Added map" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added map" />
+    <MESSAGE value="Added navmesh to enemies" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added navmesh to enemies" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Code/Player/Data/PlayerDataHolder.cs</url>
-          <line>62</line>
+          <line>68</line>
           <properties documentPath="D:\UnityProjects\BorschtTestTask\Assets\Code\Player\Data\PlayerDataHolder.cs" initialLine="61" containingFunctionPresentation="method 'TryEquipWeapon'">
             <startOffsets>
-              <option value="1867" />
+              <option value="2009" />
             </startOffsets>
             <endOffsets>
-              <option value="1912" />
+              <option value="2054" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="58" />
@@ -333,13 +337,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Code/Player/Data/PlayerDataHolder.cs</url>
-          <line>91</line>
+          <line>97</line>
           <properties documentPath="D:\UnityProjects\BorschtTestTask\Assets\Code\Player\Data\PlayerDataHolder.cs" initialLine="91" containingFunctionPresentation="method 'UnlockWeapon'">
             <startOffsets>
-              <option value="2594" />
+              <option value="2736" />
             </startOffsets>
             <endOffsets>
-              <option value="2653" />
+              <option value="2795" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="60" />
@@ -356,6 +360,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Code/Zone/ActionZone.cs</url>
+          <line>15</line>
+          <properties documentPath="D:\UnityProjects\BorschtTestTask\Assets\Code\Zone\ActionZone.cs" initialLine="15" containingFunctionPresentation="method 'OnTriggerEnter'">
+            <startOffsets>
+              <option value="322" />
+            </startOffsets>
+            <endOffsets>
+              <option value="375" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="63" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
