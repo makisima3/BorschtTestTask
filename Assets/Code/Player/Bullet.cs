@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Code.Enemies;
+using Plugins.MyUtils;
 using UnityEngine;
 
 namespace Code.Player
@@ -10,19 +11,20 @@ namespace Code.Player
     {
         [SerializeField] private float speed = 3f;
         
-        private Transform _target;
         private float _damage;
+        private float _distance;
+        private float _maxDistance;
         private BulletsPool _bulletsPool ;
         
 
-        public void Init(Transform target,BulletsPool pool,Vector3 spawnPosition,float damage)
+        public void Init(Vector3 target,BulletsPool pool,Vector3 spawnPosition,float damage,float maxDistance)
         {
-            _target = target;
             _damage = damage;
             _bulletsPool = pool;
+            _maxDistance = maxDistance;
 
             transform.position = spawnPosition;
-            transform.LookAt(target);
+            transform.rotation = ExtraMathf.GetRotation(transform.position, target, Vector3.up);
             
             StartCoroutine(ReturnToPoolWithDelay(5f));
         }
@@ -30,6 +32,10 @@ namespace Code.Player
         private void Update()
         {
             transform.position += transform.forward * speed * Time.deltaTime;
+            _distance += (transform.forward * speed * Time.deltaTime).magnitude;
+            
+            if(_distance >= _maxDistance)
+                StartCoroutine(ReturnToPoolWithDelay(0f));
         }
 
         private void OnTriggerEnter(Collider other)
@@ -45,6 +51,7 @@ namespace Code.Player
         private IEnumerator ReturnToPoolWithDelay(float delay)
         {
             yield return new WaitForSeconds(delay);
+            _distance = 0;
             _bulletsPool.ReturnObject(this);
         }
     }

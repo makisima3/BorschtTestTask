@@ -3,12 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5220fb9e-4d42-44da-aa89-06fb0134124d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BorschtTestTask/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BorschtTestTask/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Enemies/Configs/EnemyActionConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Enemies/Configs/EnemyActionConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Enemies/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Enemies/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Enemies/States/AttackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Enemies/States/AttackState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Enemies/States/GoingBackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Enemies/States/GoingBackState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Enemies/States/IdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Enemies/States/IdleState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Zone/Impls/EnemiesZone.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Zone/Impls/EnemiesZone.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Player/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Player/Bullet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Player/Shooting/ShootController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Player/Shooting/ShootController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -279,7 +275,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685123510863</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Added zombie aggressive with radius but not with zone enter">
+      <created>1685213300283</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1685213300283</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -324,7 +327,8 @@
     <MESSAGE value="Added map" />
     <MESSAGE value="Added navmesh to enemies" />
     <MESSAGE value="Added navmesh to player" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added navmesh to player" />
+    <MESSAGE value="Added zombie aggressive with radius but not with zone enter" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added zombie aggressive with radius but not with zone enter" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

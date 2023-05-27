@@ -35,15 +35,16 @@ namespace Code.Player.Shooting
         [SerializeField] private Animator animator;
 
         private PlayerAnimationEvents _playerAnimationEvents;
-        
+
         private Coroutine _shootCoroutine;
         private EnemiesZone _enemiesZone;
-        private Enemy _newarestEnemy;
-        private bool _isShootingDisabled;//only for debug and test task
+        private bool _isShootingDisabled; //only for debug and test task
         private WeaponConfig _currentWeapon;
         private WeaponData _currentWeaponData;
         private bool _isOnReload;
         private bool _haveWeapon;
+        private Vector3 cursorWorldPosition;
+        private Camera _camera;
 
         private Dictionary<WeaponType, BulletsPool> _typeToPool;
 
@@ -52,21 +53,22 @@ namespace Code.Player.Shooting
 
         private void Awake()
         {
+            _camera = Camera.main;
             OnBulletsCountChanged = new UnityEvent<WeaponData>();
-            
+
             _typeToPool = new Dictionary<WeaponType, BulletsPool>();
 
             foreach (WeaponType weaponType in Enum.GetValues(typeof(WeaponType)))
             {
-                if(weaponType == WeaponType.None)
+                if (weaponType == WeaponType.None)
                     continue;
-                
+
                 var holder = new GameObject();
                 holder.transform.SetParent(bulletsHolder);
                 holder.name = $"{weaponType}BulletsHolder";
-                _typeToPool.Add(weaponType,new BulletsPool(weaponsConfig.GetWeaponConfig(weaponType).BulletPrefab, actionConfig.BulletsPoolSize,container, holder.transform));
+                _typeToPool.Add(weaponType, new BulletsPool(weaponsConfig.GetWeaponConfig(weaponType).BulletPrefab, actionConfig.BulletsPoolSize, container, holder.transform));
             }
-            
+
             _playerAnimationEvents = GetComponent<PlayerAnimationEvents>();
         }
 
@@ -76,33 +78,25 @@ namespace Code.Player.Shooting
             _playerAnimationEvents.OnShoot.AddListener(Shoot);
             _playerAnimationEvents.OnReload.AddListener(Reload);
             playerDataHolder.OnWeaponChanged.AddListener(ChangeWeapon);
-            
+
             ChangeWeapon(playerDataHolder.PlayerData.CurrentWeapon);
             OnBulletsCountChanged.Invoke(_currentWeaponData);
         }
 
         public void DisableShoot() => _isShootingDisabled = !_isShootingDisabled;
-        
+
         public void OnEnterInZone(ActionZone zone)
         {
-            if (zone is EnemiesZone enemiesZone)
-            {
-                _enemiesZone = enemiesZone;
-
-                StartShoot();
-               return;
-            }
-
             if (zone is PlayerBaseZone)
             {
-               playerDataHolder.PlayerData.ResetAllWeaponsAmmo(weaponsConfig);
-               OnBulletsCountChanged.Invoke(_currentWeaponData);
+                playerDataHolder.PlayerData.ResetAllWeaponsAmmo(weaponsConfig);
+                OnBulletsCountChanged.Invoke(_currentWeaponData);
             }
         }
 
         public void OnExitInZone(ActionZone type)
         {
-            StopShoot();
+
         }
 
         private void ChangeWeapon(WeaponType weaponType)
@@ -112,20 +106,23 @@ namespace Code.Player.Shooting
                 _haveWeapon = false;
                 return;
             }
-            
+
             _haveWeapon = true;
-            
+
             _currentWeapon = weaponsConfig.GetWeaponConfig(weaponType);
             _currentWeaponData = playerDataHolder.PlayerData.GetWeaponData(_currentWeapon);
-            
+
             OnBulletsCountChanged.Invoke(_currentWeaponData);
-            
-            if(IsShooting)
+
+            if (IsShooting)
                 StartCoroutine(RestartShoot());
         }
-        
-        private void StartShoot()
+
+        private void StartShoot(bool isRestartIfShooting)
         {
+            if (_shootCoroutine != null && !isRestartIfShooting)
+                return;
+
             StopShoot();
 
             _shootCoroutine = StartCoroutine(ShootCoroutine());
@@ -142,8 +139,6 @@ namespace Code.Player.Shooting
 
             IsShooting = false;
         }
-        
-        
 
         private void Reload()
         {
@@ -154,33 +149,33 @@ namespace Code.Player.Shooting
             _currentWeaponData.AmmoReserve -= ammoCount;
             _currentWeaponData.Ammo = ammoCount;
             _isOnReload = false;
-            
+
             OnBulletsCountChanged.Invoke(_currentWeaponData);
         }
-        
+
         private void Shoot()
         {
-            if(_isShootingDisabled || !_haveWeapon)
+            if (_isShootingDisabled || !_haveWeapon)
                 return;
 
-            if(_currentWeaponData.Ammo <= 0)
+            if (_currentWeaponData.Ammo <= 0)
                 return;
-            
+
             _currentWeaponData.Ammo--;
             soundsManager.PlayShootSound(_currentWeaponData.Type);
             var pool = _typeToPool[_currentWeaponData.Type];
             var bullet = pool.GetObject();
-            bullet.Init(_newarestEnemy.AimPoint,pool,weaponViewChanger.SpawnPoint.position, _currentWeapon.Damage + playerDataHolder.PlayerData.BaseDamage);
+            bullet.Init(cursorWorldPosition, pool, weaponViewChanger.SpawnPoint.position, _currentWeapon.Damage + playerDataHolder.PlayerData.BaseDamage, _currentWeapon.Distance);
             OnBulletsCountChanged.Invoke(_currentWeaponData);
         }
 
         private bool GetNearestEnemy(out Enemy enemy)
         {
             enemy = null;
-            
+
             if (!_enemiesZone.Enemies.Any())
                 return false;
-            
+
             enemy = _enemiesZone.Enemies.OrderBy(e => Vector3.Distance(e.transform.position, transform.position)).First();
             var distance = Vector3.Distance(enemy.transform.position, transform.position);
             return enemy != null && enemy.IsAlive && distance <= _currentWeapon.Distance;
@@ -188,14 +183,26 @@ namespace Code.Player.Shooting
 
         private void Update()
         {
-            if(!IsShooting)
-                return;
-            
-            if(!GetNearestEnemy(out var enemy))
+            if (Input.GetMouseButtonDown(0))
+                StartShoot(false);
+
+            if (Input.GetMouseButtonUp(0))
+                StopShoot();
+
+            if (!Input.GetMouseButton(0))
                 return;
 
-            view.rotation = Quaternion.Lerp(view.rotation,
-                ExtraMathf.GetRotation(transform.position, enemy.transform.position, Vector3.up), actionConfig.ViewRotateSpeed * Time.deltaTime);
+            var cursorScreenPosition = Input.mousePosition;
+            var ray = _camera.ScreenPointToRay(cursorScreenPosition);
+            var plane = new Plane(Vector3.up, transform.position);
+
+            if (plane.Raycast(ray, out var rayDistance))
+            {
+                // Получаем точку пересечения луча с плоскостью
+                cursorWorldPosition = ray.GetPoint(rayDistance);
+                view.rotation = Quaternion.Lerp(view.rotation,
+                    ExtraMathf.GetRotation(transform.position, cursorWorldPosition, Vector3.up), actionConfig.ViewRotateSpeed * Time.deltaTime);
+            }
         }
 
         private IEnumerator RestartShoot()
@@ -203,45 +210,40 @@ namespace Code.Player.Shooting
             StopShoot();
 
             yield return new WaitForEndOfFrame();
-            
-            StartShoot();
+
+            StartShoot(true);
         }
-        
+
         private IEnumerator ShootCoroutine()
         {
             var burstCounter = 0;
-            
+
             while (true)
             {
+
                 #region Reload
-                    if (_currentWeaponData.Ammo <= 0 && _currentWeaponData.AmmoReserve > 0)
-                    {
-                        _isOnReload = true;
-                        animator.SetTrigger(playerAnimationsConfig.GetAnimationKey(_currentWeapon.ReloadAnimation));
-                        yield return new WaitWhile(() => _isOnReload);
-                    }
 
-                    if (_currentWeaponData.Ammo <= 0 && _currentWeaponData.AmmoReserve <= 0)
-                    {
-                        yield return new WaitWhile(() => _currentWeaponData.AmmoReserve <= 0);
-                        continue;
-                    }
-
-                    if (_currentWeaponData.Ammo <= 0)
-                    {
-                        Debug.Log("_currentWeaponData.Ammo == 0");
-                        continue;
-                    }
-                #endregion
-
-                if (!GetNearestEnemy(out var enemy))
+                if (_currentWeaponData.Ammo <= 0 && _currentWeaponData.AmmoReserve > 0)
                 {
-                    yield return new WaitForEndOfFrame();
+                    _isOnReload = true;
+                    animator.SetTrigger(playerAnimationsConfig.GetAnimationKey(_currentWeapon.ReloadAnimation));
+                    yield return new WaitWhile(() => _isOnReload);
+                }
+
+                if (_currentWeaponData.Ammo <= 0 && _currentWeaponData.AmmoReserve <= 0)
+                {
+                    yield return new WaitWhile(() => _currentWeaponData.AmmoReserve <= 0);
                     continue;
                 }
-                
-                _newarestEnemy = enemy;
-                
+
+                if (_currentWeaponData.Ammo <= 0)
+                {
+                    Debug.Log("_currentWeaponData.Ammo == 0");
+                    continue;
+                }
+
+                #endregion
+
                 animator.SetTrigger(playerAnimationsConfig.GetAnimationKey(_currentWeapon.ShootAnimation));
 
                 #region Burst
@@ -259,7 +261,7 @@ namespace Code.Player.Shooting
                 }
 
                 #endregion
-                
+
                 yield return new WaitForSeconds(1f / _currentWeapon.ShootRate);
             }
         }
