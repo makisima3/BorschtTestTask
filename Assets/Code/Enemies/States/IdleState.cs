@@ -32,8 +32,13 @@ namespace Code.Enemies.States
 
         public void Loop()
         {
-           if(Vector3.Distance(playerController.transform.position, transform.position) <= _enemy.EnemyActionConfig.DistanceToWalkSound)
+            var distance = Vector3.Distance(playerController.transform.position, transform.position); 
+            
+           if(distance <= _enemy.EnemyActionConfig.DistanceToWalkSound)
                zombieSoundManager.PlayWalkSound();
+           
+           if(distance <= _enemy.EnemyActionConfig.DistanceToAggressive)
+               _enemy.AttackPlayer();
         }
     }
 }

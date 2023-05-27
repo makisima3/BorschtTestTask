@@ -1,8 +1,10 @@
 ﻿using Code.Enemies.Enums;
+using Code.Player;
 using Code.StateMachine;
 using Plugins.MyUtils;
 using UnityEngine;
 using UnityEngine.AI;
+using Zenject;
 
 namespace Code.Enemies.States
 {
@@ -14,6 +16,7 @@ namespace Code.Enemies.States
         private NavMeshAgent _navMeshAgent;
 
         [SerializeField] private Animator animator;
+        [Inject] private PlayerController playerController;
         
         public EnemyStates Type => EnemyStates.GoingBack;
         
@@ -48,9 +51,14 @@ namespace Code.Enemies.States
         {
             //Rotate();
             Move();
-
-            if (Vector3.Distance(transform.position, _enemy.StartPoint) <= _enemy.EnemyActionConfig.AttackDistance)
+            
+            var distance = Vector3.Distance(playerController.transform.position, transform.position); 
+            
+            if (distance <= _enemy.EnemyActionConfig.AttackDistance)
                 _enemyStateMachine.CurrentState = EnemyStates.Idle;
+            
+            if(distance <= _enemy.EnemyActionConfig.DistanceToAggressive)
+                _enemy.AttackPlayer();
         }
 
         private void Rotate()

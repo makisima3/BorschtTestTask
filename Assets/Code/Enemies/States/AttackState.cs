@@ -49,9 +49,17 @@ namespace Code.Enemies.States
         {
             //Rotate();
             Move();
+            
+            var distance = Vector3.Distance(playerController.transform.position, transform.position); 
 
-            if (Vector3.Distance(playerController.transform.position, transform.position) <= _enemy.EnemyActionConfig.AttackDistance)
-                _enemyStateMachine.CurrentState = EnemyStates.Hit;
+            if (distance <= _enemy.EnemyActionConfig.AttackDistance)
+                _enemyStateMachine.CurrentState = EnemyStates.Hit; 
+            
+            if (distance >= _enemy.EnemyActionConfig.DistanceToGoBackOnAttack)
+                _enemyStateMachine.CurrentState = EnemyStates.GoingBack;
+            
+            if (distance >= _enemy.EnemyActionConfig.DistanceToGoBackGlobal)
+                _enemyStateMachine.CurrentState = EnemyStates.GoingBack;
         }
 
         private void Rotate()

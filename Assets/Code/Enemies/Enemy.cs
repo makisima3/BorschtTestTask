@@ -143,7 +143,7 @@ namespace Code.Enemies
         {
             if (zone is EnemiesZone)
             {
-                BackToStartPosition();
+                //BackToStartPosition();
             }
         }
     }

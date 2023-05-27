@@ -51,7 +51,7 @@ namespace Code.Zone.Impls
         private Enemy SpawnEnemy()
         {
             var point = GetRandomPoint();
-            var enemy = container.InstantiatePrefabForComponent<Enemy>(actionConfig.EnemyPrefab,point,Quaternion.identity,null);
+            var enemy = container.InstantiatePrefabForComponent<Enemy>(actionConfig.EnemyPrefab,point,Quaternion.identity,transform);
             enemy.Init(point);
             enemy.OnDead.AddListener(OnEnemyDead);
             _enemies.Add(enemy);
@@ -96,7 +96,6 @@ namespace Code.Zone.Impls
                 return;
             
             _isPlayerInside = true;
-            _enemies.ForEach(e => e.AttackPlayer());
         }
 
         protected override void OnCheckerExit(IZoneChecker checker)
@@ -112,15 +111,7 @@ namespace Code.Zone.Impls
             while (_enemies.Count < actionConfig.MAXEnemies)
             {
                 var enemy = SpawnEnemy();
-
-                if (_isPlayerInside)
-                {
-                    yield return new WaitForEndOfFrame();
-                    yield return new WaitForEndOfFrame();
-                    yield return new WaitForEndOfFrame();
-                    enemy.AttackPlayer();
-                }
-
+                
                 yield return new WaitForSeconds(1 / actionConfig.SpawnRate);
             }
 

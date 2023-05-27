@@ -27,6 +27,9 @@ namespace Code.Player.Configs
         [SerializeField] private float rotateSpeed = 2f;
         [SerializeField] private float attackRate = 2f;
         [SerializeField] private float attackDistance = 2f;
+        [SerializeField] private float distanceToAggressive = 10f;
+        [SerializeField] private float distanceToGoBackGlobal = 100f;
+        [SerializeField] private float distanceToGoBackMultiplier = 2f;
         [SerializeField] private int damage = 1;
         [SerializeField, Range(0f, 1f)] private float dropCrystalChance = 0.1f;
         
@@ -53,7 +56,11 @@ namespace Code.Player.Configs
         public float RotateSpeed => rotateSpeed;
 
         public float AttackRate => attackRate;
-        
+
+        public float DistanceToAggressive => distanceToAggressive;
+        public float DistanceToGoBackOnAttack => distanceToAggressive * distanceToGoBackMultiplier;
+        public float DistanceToGoBackGlobal => distanceToGoBackGlobal;
+
         public float AttackDistance => attackDistance;
 
         public int Damage => damage;
