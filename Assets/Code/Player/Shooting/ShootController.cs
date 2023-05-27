@@ -6,6 +6,7 @@ using Code.Enemies;
 using Code.Player.Configs;
 using Code.Player.Data;
 using Code.Player.Enums;
+using Code.Player.Joysticks;
 using Code.Player.Shooting.Configs;
 using Code.Zone;
 using Code.Zone.Impls;
@@ -22,6 +23,7 @@ namespace Code.Player.Shooting
     public class ShootController : MonoBehaviour, IZoneChecker
     {
         [Inject] private DiContainer container;
+        [Inject] private ShootJoystick shootJoystick;
         [Inject] private PlayerActionConfig actionConfig;
         [Inject] private PlayerHpController playerHpController;
         [Inject] private SoundsManager soundsManager;
@@ -56,6 +58,8 @@ namespace Code.Player.Shooting
             _camera = Camera.main;
             OnBulletsCountChanged = new UnityEvent<WeaponData>();
 
+            shootJoystick.gameObject.SetActive(!actionConfig.IsPcController);
+            
             _typeToPool = new Dictionary<WeaponType, BulletsPool>();
 
             foreach (WeaponType weaponType in Enum.GetValues(typeof(WeaponType)))
@@ -165,7 +169,14 @@ namespace Code.Player.Shooting
             soundsManager.PlayShootSound(_currentWeaponData.Type);
             var pool = _typeToPool[_currentWeaponData.Type];
             var bullet = pool.GetObject();
-            bullet.Init(cursorWorldPosition, pool, weaponViewChanger.SpawnPoint.position, _currentWeapon.Damage + playerDataHolder.PlayerData.BaseDamage, _currentWeapon.Distance);
+
+            var bulletTarget = cursorWorldPosition;
+
+            if (!actionConfig.IsPcController)
+                bulletTarget = weaponViewChanger.SpawnPoint.position + cursorWorldPosition * actionConfig.ShootJoystickPositionMultiplier;
+            
+            bullet.Init( bulletTarget, pool, weaponViewChanger.SpawnPoint.position, 
+                _currentWeapon.Damage + playerDataHolder.PlayerData.BaseDamage, _currentWeapon.Distance);
             OnBulletsCountChanged.Invoke(_currentWeaponData);
         }
 
@@ -182,6 +193,34 @@ namespace Code.Player.Shooting
         }
 
         private void Update()
+        {
+            if (actionConfig.IsPcController)
+                MouseShoot();
+            else
+                JoystickShoot();
+        }
+
+        private void JoystickShoot()
+        {
+            if (shootJoystick.Direction == Vector2.zero)
+            {
+                StopShoot();
+                return;
+            }
+            
+            StartShoot(false);
+
+            var direction = (Vector3)shootJoystick.Direction;
+
+            direction.z = direction.y;
+            direction.y = 0;
+            
+            cursorWorldPosition = direction;
+            view.rotation = Quaternion.Lerp(view.rotation,
+                ExtraMathf.GetRotation(transform.position, transform.position + cursorWorldPosition * actionConfig.ShootJoystickPositionMultiplier, Vector3.up), actionConfig.ViewRotateSpeed * Time.deltaTime);
+        }
+
+        private void MouseShoot()
         {
             if (Input.GetMouseButtonDown(0))
                 StartShoot(false);
@@ -204,6 +243,7 @@ namespace Code.Player.Shooting
                     ExtraMathf.GetRotation(transform.position, cursorWorldPosition, Vector3.up), actionConfig.ViewRotateSpeed * Time.deltaTime);
             }
         }
+        
 
         private IEnumerator RestartShoot()
         {

@@ -1,6 +1,7 @@
 ﻿using System;
 using Code.Player.Configs;
 using Code.Player.Enums;
+using Code.Player.Joysticks;
 using Code.Player.Shooting;
 using Code.UI;
 using Plugins.MyUtils;
@@ -15,7 +16,7 @@ namespace Code.Player
     public class PlayerController : MonoBehaviour
     {
         [Inject] private PlayerActionConfig actionConfig;
-        [Inject] private Joystick joystick;
+        [Inject] private MoveJoystick joystick;
         [Inject] private ShootController shootController;
         [Inject] private Collector collector;
         [Inject] private RestartView restartView;
@@ -23,7 +24,6 @@ namespace Code.Player
 
         [SerializeField] private Animator animator;
         [SerializeField] private Transform view;
-        [SerializeField] private bool keyboardController;
 
         private NavMeshAgent _navMeshAgent;
         private Vector3 _startPosition;
@@ -36,6 +36,8 @@ namespace Code.Player
         {
             OnStop = new UnityEvent();
             OnStartMove = new UnityEvent();
+            
+            joystick.gameObject.SetActive(!actionConfig.IsPcController);
             
             _navMeshAgent = GetComponent<NavMeshAgent>();
             _navMeshAgent.speed = actionConfig.Speed;
@@ -96,7 +98,7 @@ namespace Code.Player
             direction.z = direction.y;
             direction.y = 0f;
 
-            if (keyboardController)
+            if (actionConfig.IsPcController)
             {
                 direction.x = Input.GetAxis("Horizontal");
                 direction.z = Input.GetAxis("Vertical");

@@ -10,6 +10,8 @@ namespace Code.Player.Configs
         [SerializeField] private int bulletsPoolSize;
         [SerializeField] private float viewRotateSpeed = 10;
         [SerializeField] private float storageRadius = 2;
+        [SerializeField] private float shootJoystickPositionMultiplier = 4f;
+        [SerializeField] private bool isPcController;
 
         public float Speed => speed;
 
@@ -20,5 +22,9 @@ namespace Code.Player.Configs
         public float ViewRotateSpeed => viewRotateSpeed;
 
         public float StorageRadius => storageRadius;
+
+        public float ShootJoystickPositionMultiplier => shootJoystickPositionMultiplier;
+
+        public bool IsPcController => isPcController;
     }
 }

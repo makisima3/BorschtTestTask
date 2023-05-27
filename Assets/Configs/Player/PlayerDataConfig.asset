@@ -25,7 +25,7 @@ MonoBehaviour:
     - Type: 2
       Count: 10
     EquipedWeapons: 01000000
-    unlockedWeaponCellsCount: 1
+    unlockedWeaponCellsCount: 2
     CurrentHP: 2
     MaxHP: 2
     CurrentArmor: 2

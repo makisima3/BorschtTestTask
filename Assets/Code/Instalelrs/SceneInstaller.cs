@@ -1,6 +1,7 @@
 ﻿using Code.Player;
 using Code.Player.Configs;
 using Code.Player.Data;
+using Code.Player.Joysticks;
 using Code.Player.Shooting;
 using Code.Player.Shooting.Configs;
 using Code.UI;
@@ -15,7 +16,8 @@ namespace Code.Instalelrs
 {
     public class SceneInstaller : MonoInstaller
     {
-        [SerializeField] private Joystick joystick;
+        [SerializeField] private MoveJoystick moveJoystick;
+        [SerializeField] private ShootJoystick shootJoystick;
         [SerializeField] private PlayerHpController hpController;
         [SerializeField] private ShootController shootController;
         [SerializeField] private RestartView restartView;
@@ -40,7 +42,8 @@ namespace Code.Instalelrs
         
         public override void InstallBindings()
         {
-            Container.Bind<Joystick>().FromInstance(joystick).AsSingle().NonLazy();
+            Container.Bind<MoveJoystick>().FromInstance(moveJoystick).AsSingle().NonLazy();
+            Container.Bind<ShootJoystick>().FromInstance(shootJoystick).AsSingle().NonLazy();
             Container.Bind<PlayerController>().FromInstance(playerController).AsSingle().NonLazy();
             Container.Bind<PlayerHpController>().FromInstance(hpController).AsSingle().NonLazy();
             Container.Bind<ShootController>().FromInstance(shootController).AsSingle().NonLazy();
